@@ -1,0 +1,230 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FAFAFA;
+    overflow-x: hidden;
+}
+
+header{
+    top: 0px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background: #FFFFFF;
+    border-bottom: #E6E6E6 inset 1px;
+    overflow: hidden;
+}
+
+#leftIcons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+    margin-left: 5px;
+}
+
+#rightIcons{
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+    margin-right: 5px;
+}
+
+#label{
+    height: 50px;
+}
+
+#search{
+    height: 25px;
+    width: 200px;
+    border-radius: 4px; 
+    border: #E6E6E6 solid 1px;
+    text-align: center;
+    color: #595959;
+}
+
+#feed{
+    min-height: calc(100vh - 157px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.post{
+    display: flex;
+    margin: 15px 0px;
+    border: #E6E6E6 solid 1px;
+}
+
+.photoBase{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.photo{
+    width: 500px;
+}
+
+.controlPanel{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background: #FFFFFF;
+}
+
+.postHeader{
+    display: flex;
+    align-items: center;
+    padding: 5px 0px 0px 5px;
+    height: 35px;
+}
+
+.ava{
+    height: 30px;
+    margin-right: 3px; 
+    border-radius: 15px;
+    border: #E6E6E6 solid 1px;
+}
+
+.comments{
+    padding: 5px;
+    height: 318px;
+    overflow-y: auto;
+}
+
+.notice{
+    font-weight: normal;
+    margin-bottom: 10px; 
+}
+
+.comment{
+    margin: 4px 0px;
+    font-size: 14px;
+}
+
+.userName{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info{
+    height: 80px;
+    border-top: #E6E6E6 solid 1px;
+}
+
+.numOfLikes{
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.timeOfPost{
+    padding-left: 8px; 
+    font-size: 13px;
+    color: #aaaaaa; 
+}
+
+.addComment{
+    padding: 8px 8px;
+    height: 34px;
+    width: 284px;
+    border: none;
+    border-top: #E6E6E6 solid 1px;
+    color: #757575;
+    font-size: 15px;
+}
+
+#loadMoreButton{
+    width: 822px;
+    height: 40px;
+    cursor: pointer;
+    background: #ffffff;
+    border: #E6E6E6 solid 1px;
+    color: #757575;
+    font-size: 15px;
+
+    transition-duration: 0.5s;
+}
+
+#loadMoreButton:hover{
+    background: #E6E6E6;
+}
+
+#loadMoreButton:active{
+    background: #ffffff;
+    font-size: 14px;
+}
+
+footer{
+    margin-top: 15px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #FFFFFF;
+    border: #E6E6E6 solid 1px;
+}
+
+#footerLabel{
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#footerLabelImg{
+    height: 15px;
+    margin: 0px 0px 1px 3px;
+}
+
+#footerCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#aboutMe{
+    margin-bottom: 3px;
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+#lastExchange{
+    font-size: 10px;
+    color: #aaaaaa;
+}
+
+.button:hover{
+    cursor: pointer;
+}
