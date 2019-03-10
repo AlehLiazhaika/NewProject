@@ -3,427 +3,433 @@
 
 <head>
     <title>watch Me</title>
-    <link href="css/style.css" type="text/css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="shortcut icon" href="images/shortCut.png" type="image/png">
+    <link href='css/style.css' type='text/css' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel='shortcut icon' href='images/shortCut.png' type='image/png'>
+    <script src='scripts/MainPage/PhotoPost.js'></script>
+    <script src='scripts/MainPage/mainPage.js'></script>
 </head>
 
 <body>
     <header>
-        <div id = "leftIcons">
-            <a href="addingPage.html"><img class = "headerImg" src="images/add.png" height="45" alt="addPage"></a>
-            <a href="addingPage.html"><img class = "headerImg" src="images/star.png" height="38" alt="top"></a>
-            <a href="addingPage.html"><img class = "headerImg" src="images/fire.png" height="33" alt="hot"></a>
+        <div id='leftIcons' class='leftIcons'>
+            <a href='addingPage.html'><img class='headerImg' src='images/add.svg' height='40' alt='addPage'></a>
+            <a href='addingPage.html'><img class='headerImg' src='images/fire.svg' height='38' alt='top'></a>
+            <a href='addingPage.html'><img class='headerImg' src='images/star.svg' height='38' alt='hot'></a>
         </div>
         <label>
-            <a href="index.html"><img id = "label" src="images/label.png" alt="watch"></a>
+            <a href='index.html'><img id='label' class='label' src='images/label.png' alt='watch'></a>
         </label>
-        <input id = "search" placeholder = "Search">
-        <div id = "rightIcons">
-            <a href="addingPage.html"><img class = "headerImg" src="images/bell.png" height="35" width="35" alt="notify"></a>
-            <a href="addingPage.html"><img class = "headerImg" src="images/chat.png" height="35" width="35" alt="chat"></a>
+        <input id='search' class='search' placeholder='Search'>
+        <div id='rightIcons' class='rightIcons'>
+            <a href='addingPage.html'><img class='headerImg' src='images/bell.svg' height='35' alt='notify'></a>
+            <a href='addingPage.html'><img class='headerImg' src='images/message.svg' height='39' alt='chat'></a>
         </div>
     </header>
-    <div id = "feed">
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Justin B/Justin.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Justin B/ava.jpg">
-                    <div class = "userName">Justin B</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        Just a couple of stratty boys
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">tecnodrywall</span>
-                        <span>gracias por brillar en nuestro Instagram😉</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">donjacobi</span>
-                        <span>True Gangnam Style guys 👌🏻💯</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">rntimld</span>
-                        <span>I love you so much much much, u're the first idol that i ever loved😊❤️</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">an.urag6079</span>
-                        <span>i am your big fan let me love you song are amazing big indian fans</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">pranay.bairagi</span>
-                        <span>Hy justin im 15years i know u celebrity i want to become singer. When ill be become singer ill messageing atleast who love me who care me im not show my attitude to my fans. justin see my comment on your all pics that u post</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">429 322 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">43 minutes ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
+    <main>
+        <div id='feed' class='feed'>
+            <div class='post'>
+                        <div class='photoBase'>
+                            <img class='photo' src='images/Justin B/Justin.png'>
+                        </div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Justin B/ava.jpg'>
+                                <div class='userName'>Justin B</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    Just a couple of stratty boys
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>tecnodrywall</span>
+                                    <span>gracias por brillar en nuestro Instagram😉</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>donjacobi</span>
+                                    <span>True Gangnam Style guys 👌🏻💯</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>rntimld</span>
+                                    <span>I love you so much much much, u're the first idol that i ever loved😊❤️</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>an.urag6079</span>
+                                    <span>i am your big fan let me love you song are amazing big indian fans</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>pranay.bairagi</span>
+                                    <span>Hy justin im 15years i know u celebrity i want to become singer. When ill be become singer ill messageing atleast who love me who care me im not show my attitude to my fans. justin see my comment on your all pics that u post</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>429 322 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>43 minutes ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Ariane Gr/Ariane G.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Ariane Gr/ava.png'>
+                                <div class='userName'>arianeGRA</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    i love u doesn’t even begin to cover it. thank u sm.
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>chokomoko</span>
+                                    <span>i love u so much 🖤</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>1 239 012 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>2 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Buzova 86/buza.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Buzova 86/ava.png'>
+                                <div class='userName'>buzova86</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    Сегодня я получила премию от газеты “Московский комсомолец” на церемонии вручения наград “Звуковая дорожка” 🎼🎤 два года назад именно на этой премии состоялось одно из моих первых выступлений ❤ Сегодня я выиграла в категории одной из самых популярных певиц нашего шоу-бизнеса 🔝😍 Спасибо читателям МК за то, что выбрали в голосовании именно меня ❤💋 Для меня это большая честь 🔝За эти два года было много всего, но сегодня я хочу обратиться ко всем кто сидит на диванах, и осуждает меня и других, усердно работающих в своих сферах и добивающихся успехов артистов! Знайте, я очень много работаю и поэтому стою тут с этой наградой 🏆Это история не про то, как победить, а это история про то, что не нужно сдаваться даже когда тебя ненавидят, и не верят все! Ставьте цели, и добивайтесь их, и вы точно станете первыми! Я в вас верю ❤ Ваша Оля Бузова 👸🏼 #моилюдивсегдасомной
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>ri.mango</span>
+                                    <span>а почему у вас написан текст ЛедиГаги с вручения Оскара? Мозгов не хватило придумать что то свое? Позор!</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>kitty322302</span>
+                                    <span>Чем ты хвалится? Тем что твои спонсоры перечислили денежки МК , а те голову сломали чтобы придумать номинацию для такой бездарности как ты.</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>veremenko_anna</span>
+                                    <span>Это же речь Гаги на вручении премии Оскар 🙈</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>sukhatgulagaeva</span>
+                                    <span>🙌❤️сколько можно писать гадости побойтесь бога что вы все такие злые мне нравятся её песни классная девушка не нравится бузова не слушайте человек старается очень хоть это оцените в конце концов она занимается тем что ей нравится по душе сцена это её жизнь🙌🙌🙌🙌👏👏👏👏👏❤️❤️❤️❤️😍😍😍 молодец умница так держать</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>1 644 518 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>6 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Maryana Ro/maryana.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Maryana Ro/ava.png'>
+                                <div class='userName'>maryanaro</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    多くは彼らの外見について文句を言うが、だれも彼らの脳について文句を言うことはありません。
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>mane.khanazaryan._.12</span>
+                                    <span>А у меня ipone 7 чёрнй</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>511 932 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>7 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Taylor Sw/taylor.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Taylor Sw/ava.jpg'>
+                                <div class='userName'>taylorswift</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    wineTime🍷🍷
+                                    .
+                                    .
+                                    .
+                                    we're so drunk 😆
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>2 115 836 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>9 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Drake/drake.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Drake/ava.png'>
+                                <div class='userName'>champagnepapi</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    happy Birthday to me 🍾💰🍾
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>niccizai</span>
+                                    <span>happy birthdayyyyyy 🍰 💃🏻💃🏻💃🏻</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>ricasemaj</span>
+                                    <span>Happy Birthday 🦒 lol enjoy !!!</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>upscalepromo</span>
+                                    <span>HGD 🤘🏾🤘🏾🤘🏾</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>svsgms</span>
+                                    <span>Happy birthday bro🙂</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>dakarijohnson</span>
+                                    <span>Happy bday bro ✊</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>sheriroushdy</span>
+                                    <span>Happy birthday FAV!!! ❤️❤️🐐</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>empressrhe</span>
+                                    <span>Happy Birthday to the man himself. Stay winning my G 💚💚</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>1 992 761 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>10 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Aleh L/aleh.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Aleh L/ava.jpg'>
+                                <div class='userName'>aleh_lezh</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    My perfect bouquet 🍁😶🍁
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>56 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>12 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Tima B/tima.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Tima B/ava.png'>
+                                <div class='userName'>timabelorusskih</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    Be fresh 🍭
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>zeenskaaaeksandra</span>
+                                    <span>Тима, пожалуйста увидь пожалуйста мой комментарий ты самый красивый,самый лучший!!!❤️❤️❤️</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>di_andriana</span>
+                                    <span>я в тебя влюбилась</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>nadjuschka_25</span>
+                                    <span>Тима, ты лучший))) Обожаю тебя и твои песни!!!!❤</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>antonhochetvblackstar</span>
+                                    <span>Ты на всех фотках страшила, или в жизни ещё хуже?</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>91 622 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>15 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Egor Kr/egor.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Egor Kr/ava.png'>
+                                <div class='userName'>egorkreed</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    I'm not gay😎😎😎
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>anna.bshl06</span>
+                                    <span>😍😍😍❤️</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>avokkado_</span>
+                                    <span>Ооо, нет, только не это😂♥️</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>_dorofeeva_official_</span>
+                                    <span>😍😍😍😍</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>13.tommy</span>
+                                    <span>ты че на себя напяли бяя)по круче бы оделся</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>299 362 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>18 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class='post'>
+                        <div class='photoBase'><img class='photo' src='images/Pew DP/pew.png'></div>
+                        <div class='controlPanel'>
+                            <div class='postHeader'>
+                                <img class='ava' src='images/Pew DP/ava.png'>
+                                <div class='userName'>pewdiepie</div>
+                            </div>
+                            <div class='comments'>
+                                <div class='notice'>
+                                    shooting the haters🔫🔫🔫
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>georgios1005</span>
+                                    <span>WOW 😮</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>johnferguson_101</span>
+                                    <span>More like 'did someone just say T-series'?</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>oconnormeyson</span>
+                                    <span>Silenced scar</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>mech_anic7</span>
+                                    <span>Shoot...🎯🎯</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>gabe.really.spamming</span>
+                                    <span>Cyka Blyat</span>
+                                </div>
+                                <div class='comment'>
+                                    <span class='userName'>jackanomicon</span>
+                                    <span>Silenced scar wowwww! Epic</span>
+                                </div>
+                            </div>
+                            <div class='info'>
+                                <div>
+                                    <img class='button' src='images/like.svg' height='30px'>
+                                    <img class='button' src='images/share.svg' height='30px'>
+                                </div>
+                                <div class='numOfLikes'>3 209 630 people <img src='images/smallHeart.svg' height='15px'> it</div>
+                                <div class='timeOfPost'>20 hours ago</div>
+                            </div>
+                            <div>
+                                <input class='addComment' placeholder='Add comment...'>
+                            </div>
+                        </div>
             </div>
         </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Ariane Gr/Ariane G.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Ariane Gr/ava.png">
-                    <div class = "userName">arianeGRA</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        i love u doesn’t even begin to cover it. thank u sm.
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">chokomoko</span>
-                        <span>i love u so much 🖤</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">1 239 012 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">2 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Buzova 86/buza.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Buzova 86/ava.png">
-                    <div class = "userName">buzova86</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        Сегодня я получила премию от газеты “Московский комсомолец” на церемонии вручения наград “Звуковая дорожка” 🎼🎤 два года назад именно на этой премии состоялось одно из моих первых выступлений ❤ Сегодня я выиграла в категории одной из самых популярных певиц нашего шоу-бизнеса 🔝😍 Спасибо читателям МК за то, что выбрали в голосовании именно меня ❤💋 Для меня это большая честь 🔝За эти два года было много всего, но сегодня я хочу обратиться ко всем кто сидит на диванах, и осуждает меня и других, усердно работающих в своих сферах и добивающихся успехов артистов! Знайте, я очень много работаю и поэтому стою тут с этой наградой 🏆Это история не про то, как победить, а это история про то, что не нужно сдаваться даже когда тебя ненавидят, и не верят все! Ставьте цели, и добивайтесь их, и вы точно станете первыми! Я в вас верю ❤ Ваша Оля Бузова 👸🏼 #моилюдивсегдасомной
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">ri.mango</span>
-                        <span>а почему у вас написан текст ЛедиГаги с вручения Оскара? Мозгов не хватило придумать что то свое? Позор!</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">kitty322302</span>
-                        <span>Чем ты хвалится? Тем что твои спонсоры перечислили денежки МК , а те голову сломали чтобы придумать номинацию для такой бездарности как ты.</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">veremenko_anna</span>
-                        <span>Это же речь Гаги на вручении премии Оскар 🙈</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">sukhatgulagaeva</span>
-                        <span>🙌❤️сколько можно писать гадости побойтесь бога что вы все такие злые мне нравятся её песни классная девушка не нравится бузова не слушайте человек старается очень хоть это оцените в конце концов она занимается тем что ей нравится по душе сцена это её жизнь🙌🙌🙌🙌👏👏👏👏👏❤️❤️❤️❤️😍😍😍 молодец умница так держать</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">1 644 518 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">6 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Maryana Ro/maryana.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Maryana Ro/ava.png">
-                    <div class = "userName">maryanaro</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        多くは彼らの外見について文句を言うが、だれも彼らの脳について文句を言うことはありません。
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">mane.khanazaryan._.12</span>
-                        <span>А у меня ipone 7 чёрнй</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">511 932 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">7 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Taylor Sw/taylor.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Taylor Sw/ava.jpg">
-                    <div class = "userName">taylorswift</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        wineTime🍷🍷
-                        .
-                        .
-                        .
-                        we're so drunk 😆
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">2 115 836 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">9 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Drake/drake.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Drake/ava.png">
-                    <div class = "userName">champagnepapi</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        happy Birthday to me 🍾💰🍾
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">niccizai</span>
-                        <span>happy birthdayyyyyy 🍰 💃🏻💃🏻💃🏻</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">ricasemaj</span>
-                        <span>Happy Birthday 🦒 lol enjoy !!!</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">upscalepromo</span>
-                        <span>HGD 🤘🏾🤘🏾🤘🏾</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">svsgms</span>
-                        <span>Happy birthday bro🙂</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">dakarijohnson</span>
-                        <span>Happy bday bro ✊</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">sheriroushdy</span>
-                        <span>Happy birthday FAV!!! ❤️❤️🐐</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">empressrhe</span>
-                        <span>Happy Birthday to the man himself. Stay winning my G 💚💚</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">1 992 761 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">10 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Aleh L/aleh.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Aleh L/ava.jpg">
-                    <div class = "userName">aleh_lezh</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        My perfect bouquet 🍁😶🍁
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">56 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">12 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Tima B/tima.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Tima B/ava.png">
-                    <div class = "userName">timabelorusskih</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        Be fresh 🍭
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">zeenskaaaeksandra</span>
-                        <span>Тима, пожалуйста увидь пожалуйста мой комментарий ты самый красивый,самый лучший!!!❤️❤️❤️</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">di_andriana</span>
-                        <span>я в тебя влюбилась</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">nadjuschka_25</span>
-                        <span>Тима, ты лучший))) Обожаю тебя и твои песни!!!!❤</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">antonhochetvblackstar</span>
-                        <span>Ты на всех фотках страшила, или в жизни ещё хуже?</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">91 622 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">15 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Egor Kr/egor.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Egor Kr/ava.png">
-                    <div class = "userName">egorkreed</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        I'm not gay😎😎😎
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">anna.bshl06</span>
-                        <span>😍😍😍❤️</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">avokkado_</span>
-                        <span>Ооо, нет, только не это😂♥️</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">_dorofeeva_official_</span>
-                        <span>😍😍😍😍</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">13.tommy</span>
-                        <span>ты че на себя напяли бяя)по круче бы оделся</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">299 362 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">18 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <div class = "post">
-            <div class = "photoBase"><img class = "photo" src = "images/Pew DP/pew.png"></div>
-            <div class = "controlPanel">
-                <div class = "postHeader">
-                    <img class = "ava" src = "images/Pew DP/ava.png">
-                    <div class = "userName">pewdiepie</div>
-                </div>
-                <div class = "comments">
-                    <div class = "notice">
-                        shooting the haters🔫🔫🔫
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">georgios1005</span>
-                        <span>WOW 😮</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">johnferguson_101</span>
-                        <span>More like "did someone just say T-series"?</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">oconnormeyson</span>
-                        <span>Silenced scar</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">mech_anic7</span>
-                        <span>Shoot...🎯🎯</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">gabe.really.spamming</span>
-                        <span>Cyka Blyat</span>
-                    </div>
-                    <div class = "comment">
-                        <span class = "userName">jackanomicon</span>
-                        <span>Silenced scar wowwww! Epic</span>
-                    </div>
-                </div>
-                <div class = "info">
-                    <div>
-                        <img class = "button" src = "images/like.png" height="40px">
-                        <img class = "button" src = "images/share.png" height="40px">
-                    </div>
-                    <div class = "numOfLikes">3 209 630 people <img src = "images/liked.png" height="15px"> it</div>
-                    <div class = "timeOfPost">20 hours ago</div>
-                </div>
-                <div>
-                    <input class = "addComment" placeholder = "Add comment...">
-                </div>
-            </div>
-        </div>
-
-        <button id = "loadMoreButton">Load more</button>
-    </div>
+        
+        <button id='loadMoreButton' class='loadMoreButton'>Load more</button>
+    </main>
     <footer>
-        <div id = "footerLabel"><div>© 2019 </div><img id = "footerLabelImg" src="images/label.png"></div>
-        <div id = "footerCont">
-            <div id = "aboutMe">Aleh Liazhaika | 2 course 6 group | aleh.liazhaika@gmail.com</div>
-            <div id = "lastExchange">last exchange 03.03.2019</div>
+        <div id='footerLabel' class='footerLabel'><div>© 2019 </div><img id='footerLabelImg' class='footerLabelImg' src='images/label.png'></div>
+        <div id='footerCont' class='footerCont'>
+            <div id='aboutMe' class='aboutMe'>Aleh Liazhaika | 2 course 6 group | aleh.liazhaika@gmail.com</div>
+            <div id='lastExchange' class='lastExchange'>last exchange 03.03.2019</div>
         </div>
     </footer>
 </body>

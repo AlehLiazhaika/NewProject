@@ -30,12 +30,12 @@ header{
     align-items: center;
     height: 60px;
     width: 100%;
-    background: #FFFFFF;
+    background: #FFF;
     border-bottom: #E6E6E6 inset 1px;
     overflow: hidden;
 }
 
-#leftIcons{
+.leftIcons{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -43,18 +43,20 @@ header{
     margin-left: 5px;
 }
 
-#rightIcons{
+.rightIcons{
     display: flex;
     justify-content: space-around;
     width: 100px;
     margin-right: 5px;
 }
 
-#label{
+
+
+.label{
     height: 50px;
 }
 
-#search{
+.search{
     height: 25px;
     width: 200px;
     border-radius: 4px; 
@@ -63,7 +65,7 @@ header{
     color: #595959;
 }
 
-#feed{
+.feed{
     min-height: calc(100vh - 157px);
     display: flex;
     flex-direction: column;
@@ -134,7 +136,8 @@ header{
 }
 
 .info{
-    height: 80px;
+    padding: 2px;
+    height: 76px;
     border-top: #E6E6E6 solid 1px;
 }
 
@@ -160,7 +163,7 @@ header{
     font-size: 15px;
 }
 
-#loadMoreButton{
+.loadMoreButton{
     width: 822px;
     height: 40px;
     cursor: pointer;
@@ -172,11 +175,11 @@ header{
     transition-duration: 0.5s;
 }
 
-#loadMoreButton:hover{
+.loadMoreButton:hover{
     background: #E6E6E6;
 }
 
-#loadMoreButton:active{
+.loadMoreButton:active{
     background: #ffffff;
     font-size: 14px;
 }
@@ -193,7 +196,7 @@ footer{
     border: #E6E6E6 solid 1px;
 }
 
-#footerLabel{
+.footerLabel{
     margin-top: 8px;
     display: flex;
     justify-content: space-between;
@@ -203,24 +206,24 @@ footer{
     font-weight: bold;
 }
 
-#footerLabelImg{
+.footerLabelImg{
     height: 15px;
     margin: 0px 0px 1px 3px;
 }
 
-#footerCont{
+.footerCont{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#aboutMe{
+.aboutMe{
     margin-bottom: 3px;
     font-size: 13px;
     color: #aaaaaa;
 }
 
-#lastExchange{
+.lastExchange{
     font-size: 10px;
     color: #aaaaaa;
 }
