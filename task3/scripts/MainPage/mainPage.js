@@ -33,8 +33,12 @@ let photoPosts = function(){
                 return posts[index];
             }
         },
-        'getPosts': function(){
+        'getAll': function(){
             return posts;
+        },
+
+        'getPosts': function(skip = 0, top = 10, filter = PhotoPost.filters.creationTime){
+            return posts.sort(filter).slice(skip, skip + top);
         }
     }
 }();
@@ -42,9 +46,3 @@ let photoPosts = function(){
 function getId(post){
     return post.id;
 }
-
-
-window.onload = function(){ 
-    let p = new PhotoPost(0, 'AlehLezh', "hello world", './images/Justin B/Justin.png').generateHTML();
-    feed.appendChild(p);
-};

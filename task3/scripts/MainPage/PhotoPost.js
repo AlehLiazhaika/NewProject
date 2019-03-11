@@ -6,9 +6,8 @@ class PhotoPost{
         this.hashTags = [];
         this.comments = [];
         this.likes = [];
-        this.lifeTime = new Date(Date.now());
+        this.creationTime = new Date(Date.now());
         this.photoLink = photoLink;
-
         this.hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
     }
 
@@ -20,6 +19,32 @@ class PhotoPost{
         likes.push(user);
     }
 
+    static filters(){
+        return {
+            'IDComparator': function(o1, o2){
+                if(PhotoPost.validate(o1) && PhotoPost.validate(o2)){
+                    return o1.id - o2.id;
+                } else{
+                    return 0;
+                }
+            },
+            'authorComparator': function(o1, o2){
+                if(PhotoPost.validate(o1) && PhotoPost.validate(o2)){
+                    return o1.author.localeCompare(o2.author);
+                } else{
+                    return 0;
+                }
+            },
+            'creationTimeComparator': function(o1, o2){
+                if(PhotoPost.validate(o1) && PhotoPost.validate(o2)){
+                    return o1.getTime() - o2.getTime();
+                } else{
+                    return 0;
+                }
+            }
+        }
+    }
+
     static validate(photoPost){
         return photoPost instanceof PhotoPost &&
             typeof photoPost.id === 'number' &&
@@ -28,11 +53,11 @@ class PhotoPost{
             Array.isArray(photoPost.hashTags) &&
             Array.isArray(photoPost.hashTags) &&
             Array.isArray(photoPost.likes) &&
-            photoPost.lifeTime instanceof Date &&
+            photoPost.creationTime instanceof Date &&
             typeof photoPost.photoLink === 'string';
     }
 
-    generateHTML(){
+    getHTML(){
         let post = document.createElement('div');
         post.className = 'post';
 
