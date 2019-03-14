@@ -1,48 +1,80 @@
 class PhotoPost{
     constructor(id, author, description, photoLink){
-        this.id = id;
-        this.author = author;
-        this.description = description;
-        this.hashTags = [];
-        this.comments = [];
-        this.likes = [];
-        this.creationTime = new Date(Date.now());
-        this.photoLink = photoLink;
-        this.hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
+        this._id = id;
+        this._author = author;
+        this._description = description;
+        this._hashTags = [];
+        this._comments = [];
+        this._likes = [];
+        this._creationTime = new Date(Date.now());
+        this._photoLink = photoLink;
+
+        this._hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
     }
 
-    addComment(comment){
-        this.comments.push(comment);
+
+    get id(){
+        return this._id;
     }
 
-    like(user){
-        likes.push(user);
+    get author(){
+        return this._author;
     }
 
-    static filters(){
-        return {
-            'IDComparator': function(o1, o2){
-                if(PhotoPost.validate(o1) && PhotoPost.validate(o2)){
-                    return o1.id - o2.id;
-                } else{
-                    return 0;
-                }
-            },
-            'authorComparator': function(o1, o2){
-                if(PhotoPost.validate(o1) && PhotoPost.validate(o2)){
-                    return o1.author.localeCompare(o2.author);
-                } else{
-                    return 0;
-                }
-            },
-            'creationTimeComparator': function(o1, o2){
-                if(PhotoPost.validate(o1) && PhotoPost.validate(o2)){
-                    return o1.getTime() - o2.getTime();
-                } else{
-                    return 0;
-                }
-            }
-        }
+    get description(){
+        return this._description;
+    }
+
+    get hashTags(){
+        return this._hashTags;
+    }
+
+    get comments(){
+        return this._comments;
+    }
+
+    get likes(){
+        return this._likes;
+    }
+
+    get creationTime(){
+        return this._creationTime;
+    }
+
+    get photoLink(){
+        return this._photoLink;
+    }
+
+    set id(id){
+        this._id = id;
+    }
+
+    set author(author){
+        this._author = author;
+    }
+
+    set description(description){
+        this._description = description;
+    }
+
+    set hashTags(hashTags){
+        this._hashTags = hashTags;
+    }
+
+    set comments(comments){
+        this._comments = comments;
+    }
+
+    set likes(likes){
+        this._likes = likes;
+    }
+
+    set creationTime(creationTime){
+        this._creationTime = creationTime;
+    }
+
+    set photoLink(photoLink){
+        this._photoLink = photoLink;
     }
 
     static validate(photoPost){
@@ -66,7 +98,7 @@ class PhotoPost{
 
         let photo = document.createElement('img');
         photo.className = 'photo';
-        photo.src = this.photoLink;
+        photo.src = this._photoLink;
         photoBase.appendChild(photo);
 
         let controlPanel = document.createElement('div');
@@ -77,11 +109,11 @@ class PhotoPost{
 
         let ava = document.createElement('img');
         ava.className = 'ava';
-        ava.src = './images/Justin B/ava.jpg';
+        ava.src = './images/Danila/ava.jpg';
 
         let userName = document.createElement('div');
         userName.className = 'userName';
-        userName.innerText = this.author;
+        userName.innerText = this._author;
 
         postHeader.appendChild(ava);
         postHeader.appendChild(userName);
@@ -91,7 +123,7 @@ class PhotoPost{
 
         let notice = document.createElement('div');
         notice.className = 'notice';
-        notice.innerText = this.description;
+        notice.innerText = this._description;
 
         comments.appendChild(notice);
 
@@ -100,11 +132,11 @@ class PhotoPost{
 
         let div1 = document.createElement('div');
         let like = document.createElement('img');
-        like.className = 'button';
+        like.className = 'like button';
         like.src = './images/like.svg';
-        like.setAttribute('height', '30px')
+        like.setAttribute('height', '30px');
         let share = document.createElement('img');
-        share.className = 'button';
+        share.className = 'share button';
         share.src = './images/share.svg';
         share.setAttribute('height', '30px')
         div1.appendChild(like);
@@ -112,7 +144,7 @@ class PhotoPost{
 
         let numOfLikes = document.createElement('div');
         numOfLikes.className = 'numOfLikes';
-        numOfLikes.innerHTML = this.likes.length + ' <img src=\'images/smallHeart.svg\' height=\'15px\'> it';
+        numOfLikes.innerHTML = this._likes.length + ' <img src=\'images/smallHeart.svg\' height=\'15px\'> it';
         let timeOfPost = document.createElement('div');
         timeOfPost.className = 'timeOfPost';
         timeOfPost.innerHTML = '3 minutes ago';

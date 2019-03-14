@@ -136,8 +136,8 @@ header{
 }
 
 .info{
-    padding: 2px;
-    height: 76px;
+    padding: 5px 2px 2px 2px;
+    height: 73px;
     border-top: #E6E6E6 solid 1px;
 }
 
@@ -181,7 +181,6 @@ header{
 
 .loadMoreButton:active{
     background: #ffffff;
-    font-size: 14px;
 }
 
 footer{

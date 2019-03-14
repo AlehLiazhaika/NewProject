@@ -1,48 +1,29 @@
-let photoPosts = function(){
-    let posts = [];
-    return {
-        'add': function(photoPost){
-            if(PhotoPost.validate(photoPost) && posts.every(function(post){ return post.id != photoPost.id; })){
-                posts.push(photoPost);
-                return true;
-            } else{
-                return false;
-            }
-        },
-        'remove': function(id){
-            let index = posts.map(getId).indexOf(id);
-            if(~index){
-                posts.splice(index, 1);
-                return true;
-            } else{
-                return false;
-            }
-        },
-        'edit': function(id, photoPost){
-            let index = posts.map(getId).indexOf(id);
-            if(PhotoPost.validate(photoPost) && ~index){
-                posts[index] = photoPost;
-                return true;
-            } else{
-                return false;
-            }
-        },
-        'get': function(id){
-            let index = posts.map(getId).indexOf(id);
-            if(~index){
-                return posts[index];
-            }
-        },
-        'getAll': function(){
-            return posts;
-        },
 
-        'getPosts': function(skip = 0, top = 10, filter = PhotoPost.filters.creationTime){
-            return posts.sort(filter).slice(skip, skip + top);
+
+let feed = new Feed();
+let p = new PhotoPost(1, 'me', "hello world", "./images/Drake/drake.png");
+
+feed.add(new PhotoPost(1, 'me', "hello world", "./images/Drake/drake.png"));
+feed.add(new PhotoPost(2, 'me', "hello world", "./images/Drake/drake.png"));
+feed.add(new PhotoPost(3, 'you', "hello world", "./images/Drake/drake.png"));
+feed.add(new PhotoPost(4, 'you', "hello world", "./images/Drake/drake.png"));
+feed.add(new PhotoPost(5, 'me', "hello world", "./images/Drake/drake.png"));
+
+
+
+
+
+
+document.getElementById('feed').appendChild(new PhotoPost(1, 'Danila', "Я Маша, приятно познакомиться", "./images/Danila/Danila.jpg").getHTML());
+
+let likes = document.getElementsByClassName("like");
+for(let i = 0; i < likes.length; ++i){
+    let like = likes[i];
+    like.addEventListener('click', function(){
+        if(like.getAttribute('src') == './images/like.svg'){
+            like.setAttribute("src", "./images/redLike.svg");
+        } else{
+            like.setAttribute("src", "./images/like.svg");
         }
-    }
-}();
-
-function getId(post){
-    return post.id;
-}
+    })
+};
