@@ -90,79 +90,14 @@ class PhotoPost{
     }
 
     getHTML(){
-        let post = document.createElement('div');
-        post.className = 'post';
-
-        let photoBase = document.createElement('div');
-        photoBase.className = 'photoBase';
-
-        let photo = document.createElement('img');
-        photo.className = 'photo';
-        photo.src = this._photoLink;
-        photoBase.appendChild(photo);
-
-        let controlPanel = document.createElement('div');
-        controlPanel.className = 'controlPanel';
-
-        let postHeader = document.createElement('div');
-        postHeader.className = 'postHeader';
-
-        let ava = document.createElement('img');
-        ava.className = 'ava';
-        ava.src = './images/Danila/ava.jpg';
-
-        let userName = document.createElement('div');
-        userName.className = 'userName';
-        userName.innerText = this._author;
-
-        postHeader.appendChild(ava);
-        postHeader.appendChild(userName);
-
-        let comments = document.createElement('div');
-        comments.className = 'comments';
-
-        let notice = document.createElement('div');
-        notice.className = 'notice';
-        notice.innerText = this._description;
-
-        comments.appendChild(notice);
-
-        let info = document.createElement('div');
-        info.className = 'info';
-
-        let div1 = document.createElement('div');
-        let like = document.createElement('img');
-        like.className = 'like button';
-        like.src = './images/like.svg';
-        like.setAttribute('height', '30px');
-        let share = document.createElement('img');
-        share.className = 'share button';
-        share.src = './images/share.svg';
-        share.setAttribute('height', '30px')
-        div1.appendChild(like);
-        div1.appendChild(share);
-
-        let numOfLikes = document.createElement('div');
-        numOfLikes.className = 'numOfLikes';
-        numOfLikes.innerHTML = this._likes.length + ' <img src=\'images/smallHeart.svg\' height=\'15px\'> it';
-        let timeOfPost = document.createElement('div');
-        timeOfPost.className = 'timeOfPost';
-        timeOfPost.innerHTML = '3 minutes ago';
-
-        info.appendChild(div1);
-        info.appendChild(numOfLikes);
-        info.appendChild(timeOfPost);
-
-        let div2 = document.createElement('div');
-        div2.innerHTML = '<input class=\'addComment\' placeholder=\'Add comment...\'>';
-
-        controlPanel.appendChild(postHeader);
-        controlPanel.appendChild(comments);
-        controlPanel.appendChild(info);
-        controlPanel.appendChild(div2);
-
-        post.appendChild(photoBase);
-        post.appendChild(controlPanel);
-        return post;
-    } //75 LINES CARRRLLLL
+        let postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
+        postTemplate.querySelector('.photo').setAttribute('src', this._photoLink);
+        //postTemplate.querySelector('ava')
+        postTemplate.querySelector('.userName').textContent = this._author;
+        postTemplate.querySelector('.notice').textContent = this._description;
+        console.log(this._likes.length);
+        postTemplate.querySelector('.numOfLikes').innerHTML = '0 <img src=\'./images/smallHeart.svg\' height=\'15px\'> it';
+        postTemplate.querySelector('.timeOfPost').textContent = Date.now() - this._creationTime + ' seconds ago' ;
+        return postTemplate.cloneNode(true);
+    }
 }
