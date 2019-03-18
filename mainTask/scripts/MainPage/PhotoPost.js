@@ -83,7 +83,7 @@ class PhotoPost{
             typeof photoPost.author === 'string' &&
             typeof photoPost.description === 'string' &&
             Array.isArray(photoPost.hashTags) &&
-            Array.isArray(photoPost.hashTags) &&
+            Array.isArray(photoPost.comments) &&
             Array.isArray(photoPost.likes) &&
             photoPost.creationTime instanceof Date &&
             typeof photoPost.photoLink === 'string';
@@ -92,7 +92,7 @@ class PhotoPost{
     getHTML(){
         let postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
         postTemplate.querySelector('.photo').setAttribute('src', this._photoLink);
-        //postTemplate.querySelector('ava')
+        // postTemplate.querySelector('.ava').setAttribute('src', './images/Daria/ava.jpg');
         postTemplate.querySelector('.userName').textContent = this._author;
         postTemplate.querySelector('.notice').textContent = this._description;
         console.log(this._likes.length);

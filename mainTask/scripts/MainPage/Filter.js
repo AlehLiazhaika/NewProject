@@ -1,11 +1,11 @@
 class Filter{
     constructor(property, value){
-        this.property = property;
-        this.value = value;
+        this._property = property;
+        this._value = value;
     }
 
     check(element){
-        if(element[this.property] === this.value){
+        if(element[this._property] === this._value){
             return true;
         } else{
             return false;
