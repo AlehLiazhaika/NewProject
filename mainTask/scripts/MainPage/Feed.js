@@ -1,10 +1,19 @@
+import './PhotoPost';
+
+function getId(post) {
+  return post.id;
+}
+
 class Feed {
   constructor() {
     this._posts = [];
   }
 
   add(photoPost) {
-    if (PhotoPost.validate(photoPost) && this._posts.every(post => post.id != photoPost.id)) {
+    if (
+      PhotoPost.validate(photoPost)
+			&& this._posts.every(post => post.id !== photoPost.id)
+    ) {
       this._posts.push(photoPost);
       return true;
     }
@@ -21,7 +30,7 @@ class Feed {
   }
 
   clear() {
-    while (this._posts.length != 0) {
+    while (this._posts.length !== 0) {
       this._posts.pop();
     }
   }
@@ -40,6 +49,7 @@ class Feed {
     if (~index) {
       return this._posts[index];
     }
+    return undefined;
   }
 
   getPosts(skip = 0, top = 10, filter = new DefaultFilter()) {
@@ -48,8 +58,4 @@ class Feed {
       .sort((o1, o2) => o1.creationTime.getTime() - o2.creationTime.getTime())
       .slice(skip, skip + top);
   }
-}
-
-function getId(post) {
-  return post.id;
 }
