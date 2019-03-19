@@ -1,5 +1,5 @@
 *{
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Segoe UI Semilight', sans-serif;
     margin: 0px;
     padding: 0px;
     text-decoration: none;
@@ -133,6 +133,7 @@ header{
 .userName{
     cursor: pointer;
     font-weight: bold;
+    font-size: 15px;
 }
 
 .info{
@@ -142,12 +143,14 @@ header{
 }
 
 .numOfLikes{
+    font-family: 'Segoe UI Light', sans-serif;
     margin-left: 5px;
     font-size: 16px;
     font-weight: 600;
 }
 
 .timeOfPost{
+    font-family: 'Segoe UI Light', sans-serif;
     padding-left: 8px; 
     font-size: 13px;
     color: #aaaaaa; 
@@ -229,4 +232,22 @@ footer{
 
 .button:hover{
     cursor: pointer;
+}
+
+/* .like{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    background-image: url(../images/like.svg);
+    background-size: cover;
+}
+
+.liked{
+    background-image: url(../images/liked.svg);
+} */
+
+.like:active{
+    height: 29px;
+    margin-right: 1px; 
+    transition-duration: 0.1s;
 }

@@ -20,5 +20,8 @@ module.exports = {
 		'no-tabs': 'off',
 		'no-bitwise': 'off',
 		'no-plusplus': 'off',
+		'prefer-const': 'warn',
+		'no-undef': 'error',
+		'no-unused-vars': 'off',
 	},
 };

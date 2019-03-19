@@ -6,10 +6,22 @@ class PhotoPost {
     this._hashTags = [];
     this._comments = [];
     this._likes = [];
-    this._creationTime = new Date(Date.now());
+    this._creationTime = new Date(Date.now()); //+
     this._photoLink = photoLink;
 
     this._hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
+  }
+
+  like(user) {
+    this._likes.push(user);
+  }
+
+  disLike(user) {
+    this._likes.remove(user);
+  }
+
+  comment(comment) {
+    this.comment.push(comment);
   }
 
   get id() {
@@ -79,28 +91,34 @@ class PhotoPost {
   static validate(photoPost) {
     return (
       photoPost instanceof PhotoPost
-			&& typeof photoPost.id === 'number'
-			&& typeof photoPost.author === 'string'
-			&& typeof photoPost.description === 'string'
-			&& Array.isArray(photoPost.hashTags)
-			&& Array.isArray(photoPost.comments)
-			&& Array.isArray(photoPost.likes)
-			&& photoPost.creationTime instanceof Date
-			&& typeof photoPost.photoLink === 'string'
+      && typeof photoPost.id === 'number'
+      && typeof photoPost.author === 'string'
+      && typeof photoPost.description === 'string'
+      && Array.isArray(photoPost.hashTags)
+      && Array.isArray(photoPost.comments)
+      && Array.isArray(photoPost.likes)
+      && photoPost.creationTime instanceof Date
+      && typeof photoPost.photoLink === 'string'
     );
   }
 
+
   getHTML() {
-    const postTemplate = document
-      .getElementById('postTemplate')
-      .content.querySelector('.post');
+    const postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
+    postTemplate.setAttribute('data-id', this._id);
     postTemplate.querySelector('.photo').setAttribute('src', this._photoLink);
     // postTemplate.querySelector('.ava').setAttribute('src', './images/Daria/ava.jpg');
     postTemplate.querySelector('.userName').textContent = this._author;
     postTemplate.querySelector('.notice').textContent = this._description;
-    postTemplate.querySelector('.numOfLikes').innerHTML =			"0 <img src='./images/smallHeart.svg' height='15px'> it";
-    postTemplate.querySelector('.timeOfPost').textContent = `${Date.now()
-			- this._creationTime} seconds ago`;
+    postTemplate.querySelector('.like').setAttribute('onclick', 'likeFunc(this)');
+    postTemplate.querySelector('.numOfLikes').innerHTML = "0 people <img src='./images/smallHeart.svg' height='15px'> it";
+    postTemplate.querySelector('.timeOfPost').textContent = `${Date.now() - this._creationTime} seconds ago`;
+    postTemplate.querySelector('.addComment').setAttribute('onkeydown', 'commentFunc(this, event.keyCode)');
+    // if (postTemplate.querySelector('.photo').getAttribute('src') === './images.loading.svg') {
+    //   postTemplate.querySelector('.photo').id = 'loading';
+    // }
     return postTemplate.cloneNode(true);
   }
 }
+
+// addEventListener('click', likeFunc.bind(this));

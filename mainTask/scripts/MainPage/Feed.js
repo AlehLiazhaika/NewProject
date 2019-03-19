@@ -1,20 +1,19 @@
-import './PhotoPost';
+/* global PhotoPost, DefaultFilter */
 
 function getId(post) {
   return post.id;
 }
 
 class Feed {
-  constructor() {
+  constructor(feed) {
+    this._feed = feed;
     this._posts = [];
   }
 
   add(photoPost) {
-    if (
-      PhotoPost.validate(photoPost)
-			&& this._posts.every(post => post.id !== photoPost.id)
-    ) {
+    if (PhotoPost.validate(photoPost) && this._posts.every(post => post.id !== photoPost.id)) {
       this._posts.push(photoPost);
+      this._feed.insertBefore(photoPost.getHTML(), this._feed.children[0]);
       return true;
     }
     return false;
