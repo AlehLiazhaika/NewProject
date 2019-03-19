@@ -14,7 +14,7 @@ feed.add(new PhotoPost(8, 'aleh_lezh', 'My perfect bouquet 🍁😶🍁', './ima
 feed.add(new PhotoPost(9, 'timabelorusskih', 'Be fresh 🍭', './images/Tima B/tima.png'));
 feed.add(new PhotoPost(10, 'egorkreed', 'I\'m not gay😎😎😎', './images/Egor Kr/egor.png'));
 feed.add(new PhotoPost(11, 'pewdiepie', 'shooting the haters🔫🔫🔫', './images/Pew DP/pew.png'));
-feed.add(new PhotoPost(12, 'noname', 'test', './images/loading.svg'));
+feed.add(new PhotoPost(12, 'noname', 'test', './images/loading.gif'));
 
 
 function likeFunc(button) {
