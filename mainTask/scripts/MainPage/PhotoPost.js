@@ -1,3 +1,5 @@
+/* global likeFunc */
+
 class PhotoPost {
   constructor(id, author, description, photoLink) {
     this._id = id;
@@ -107,16 +109,12 @@ class PhotoPost {
     const postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
     postTemplate.setAttribute('data-id', this._id);
     postTemplate.querySelector('.photo').setAttribute('src', this._photoLink);
-    // postTemplate.querySelector('.ava').setAttribute('src', './images/Daria/ava.jpg');
     postTemplate.querySelector('.userName').textContent = this._author;
     postTemplate.querySelector('.notice').textContent = this._description;
-    postTemplate.querySelector('.like').setAttribute('onclick', 'likeFunc(this)');
-    postTemplate.querySelector('.numOfLikes').innerHTML = "0 people <img src='./images/smallHeart.svg' height='15px'> it";
+    // postTemplate.querySelector('.like').addEventListener('click', likeFunc);
+    postTemplate.querySelector('.counter').textContent = '0';
     postTemplate.querySelector('.timeOfPost').textContent = `${Date.now() - this._creationTime} seconds ago`;
     postTemplate.querySelector('.addComment').setAttribute('onkeydown', 'commentFunc(this, event.keyCode)');
-    // if (postTemplate.querySelector('.photo').getAttribute('src') === './images.loading.svg') {
-    //   postTemplate.querySelector('.photo').id = 'loading';
-    // }
     return postTemplate.cloneNode(true);
   }
 }

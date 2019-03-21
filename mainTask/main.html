@@ -42,7 +42,7 @@
 
     <template id='postTemplate'>
         <div data-id="" class='post'>
-            <div class='photoBase'><img class='photo' src='./images/loading.gif'></div>
+            <div class='photoBase'><img class='photo' src='./images/loading.svg'></div>
             <div class='controlPanel'>
                 <div class='postHeader'>
                     <img class='ava' src='./images/defaultAva.svg'>
@@ -55,11 +55,11 @@
                 </div>
                 <div class='info'>
                     <div>
-                        <img class='like button' src='./images/like.svg' height='30px'>
-                        <img class='share button' src='./images/share.svg' height='30px'>
+                        <button class='like'></button>
+                        <button class='share'></button>
                     </div>
-                    <div class='numOfLikes'>     </div>
-                    <div class='timeOfPost'>     </div>
+                    <div class='numOfLikes'><span class='counter'></span> people <img src='./images/smallHeart.svg' height='15px'> it</div>
+                    <div class='timeOfPost'>    </div>
                 </div>
                 <div>
                     <input class='addComment' placeholder='Add comment...'>

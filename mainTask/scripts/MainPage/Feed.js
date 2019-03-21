@@ -29,9 +29,7 @@ class Feed {
   }
 
   clear() {
-    while (this._posts.length !== 0) {
-      this._posts.pop();
-    }
+    this._posts = [];
   }
 
   edit(id, photoPost) {
@@ -44,11 +42,7 @@ class Feed {
   }
 
   getPostsById(id) {
-    const index = this._posts.map(getId).indexOf(id);
-    if (~index) {
-      return this._posts[index];
-    }
-    return undefined;
+    return this._posts.find(element => element.id === id);
   }
 
   getPosts(skip = 0, top = 10, filter = new DefaultFilter()) {

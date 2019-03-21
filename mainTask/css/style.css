@@ -230,11 +230,11 @@ footer{
     color: #aaaaaa;
 }
 
-.button:hover{
+button:hover{
     cursor: pointer;
 }
 
-/* .like{
+.like{
     height: 30px;
     width: 30px;
     background-color: white;
@@ -244,10 +244,26 @@ footer{
 
 .liked{
     background-image: url(../images/liked.svg);
-} */
+}
+
+.share{
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/share.svg);
+    background-size: cover;
+}
 
 .like:active{
     height: 29px;
+    width: 29px;
     margin-right: 1px; 
     transition-duration: 0.1s;
+}
+
+.counter{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }

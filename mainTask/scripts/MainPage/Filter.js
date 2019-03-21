@@ -5,10 +5,7 @@ class Filter {
   }
 
   check(element) {
-    if (element[this._property] === this._value) {
-      return true;
-    }
-    return false;
+    return element[this._property] === this._value;
   }
 }
 
