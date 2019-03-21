@@ -11,11 +11,4 @@ class Comment {
   get text() {
     return this._text;
   }
-
-  getHTML() {
-    const commentTemplate = document.getElementById('commentTemplate').content.querySelector('.comment');
-    commentTemplate.querySelector('.userName').textContent = this._user;
-    commentTemplate.querySelector('.commentText').textContent = this._text;
-    return commentTemplate.cloneNode(true);
-  }
 }

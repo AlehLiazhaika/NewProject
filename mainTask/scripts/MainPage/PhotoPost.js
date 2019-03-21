@@ -103,20 +103,6 @@ class PhotoPost {
       && typeof photoPost.photoLink === 'string'
     );
   }
-
-
-  getHTML() {
-    const postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
-    postTemplate.setAttribute('data-id', this._id);
-    postTemplate.querySelector('.photo').setAttribute('src', this._photoLink);
-    postTemplate.querySelector('.userName').textContent = this._author;
-    postTemplate.querySelector('.notice').textContent = this._description;
-    // postTemplate.querySelector('.like').addEventListener('click', likeFunc);
-    postTemplate.querySelector('.counter').textContent = '0';
-    postTemplate.querySelector('.timeOfPost').textContent = `${Date.now() - this._creationTime} seconds ago`;
-    postTemplate.querySelector('.addComment').setAttribute('onkeydown', 'commentFunc(this, event.keyCode)');
-    return postTemplate.cloneNode(true);
-  }
 }
 
 // addEventListener('click', likeFunc.bind(this));
