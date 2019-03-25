@@ -257,7 +257,7 @@ button:hover{
 
 .share{
     position: absolute;
-    left: 30px;
+    left: 35px;
     height: 30px;
     width: 30px;
     border: none;
@@ -271,15 +271,11 @@ button:hover{
 }
 
 .like:active{
-    height: 29px;
-    width: 29px;
-    transition-duration: 0.1s;
-}
-
-.share:active{
-    height: 29px;
-    width: 29px;
-    transition-duration: 0.1s;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    top: 3px;
+    transition-duration: 0.01s;
 }
 
 .counter{
@@ -290,8 +286,8 @@ button:hover{
 
 .sharePanel{
     position: absolute;
-    left: 60px;
-    width: 235px;
+    left: 65px;
+    width: 230px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -306,7 +302,7 @@ button:hover{
 }
 
 .copyLink{
-    background-image: url(../images/link.svg);
+    background-image: url(../images/link0.svg);
 }
 
 .inInstagram{
@@ -332,7 +328,7 @@ button:hover{
 .hider{
     position: absolute;
     height: 30px;
-    width: 236px;
+    width: 231px;
     right: 0px;
     background: #FFFFFF;
     transition-duration: 0.2s;
