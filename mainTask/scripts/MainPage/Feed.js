@@ -1,9 +1,5 @@
 /* global PhotoPost, DefaultFilter, PhotoPostView */
 
-function getId(post) {
-  return post.id;
-}
-
 class Feed {
   constructor() {
     this._posts = [];
@@ -28,7 +24,7 @@ class Feed {
   }
 
   remove(id) {
-    const index = this._posts.map(getId).indexOf(id);
+    const index = this._posts.map(element => element.id).indexOf(id);
     if (~index) {
       this._posts.splice(index, 1);
       return true;
@@ -41,7 +37,7 @@ class Feed {
   }
 
   edit(id, photoPost) {
-    const index = this._posts.map(getId).indexOf(id);
+    const index = this._posts.map(element => element.id).indexOf(id);
     if (PhotoPost.validate(photoPost) && ~index) {
       this._posts[index] = photoPost;
       return true;

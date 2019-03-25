@@ -9,7 +9,6 @@ class PhotoPostView {
     postTemplate.querySelector('.counter').textContent = '0';
     postTemplate.querySelector('.counter').setAttribute('data-id', photoPost.id);
     postTemplate.querySelector('.timeOfPost').textContent = `${Date.now() - photoPost.creationTime} seconds ago`;
-    postTemplate.querySelector('.addComment').setAttribute('onkeydown', 'commentFunc(this, event.keyCode)');
     return postTemplate.cloneNode(true);
   }
 }

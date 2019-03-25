@@ -237,6 +237,7 @@ button:hover{
 .like{
     height: 30px;
     width: 30px;
+    border: none;
     background-color: white;
     background-image: url(../images/like.svg);
     background-size: cover;
@@ -259,6 +260,12 @@ button:hover{
     height: 29px;
     width: 29px;
     margin-right: 1px; 
+    transition-duration: 0.1s;
+}
+
+.share:active{
+    height: 29px;
+    width: 29px;
     transition-duration: 0.1s;
 }
 

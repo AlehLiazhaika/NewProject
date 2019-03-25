@@ -15,30 +15,10 @@ feed.add(new PhotoPost(8, 'aleh_lezh', 'My perfect bouquet 🍁😶🍁', './ima
 feed.add(new PhotoPost(9, 'timabelorusskih', 'Be fresh 🍭', './images/Tima B/tima.png'));
 feed.add(new PhotoPost(10, 'egorkreed', 'I\'m not gay😎😎😎', './images/Egor Kr/egor.png'));
 feed.add(new PhotoPost(11, 'pewdiepie', 'shooting the haters🔫🔫🔫', './images/Pew DP/pew.png'));
-feed.add(new PhotoPost(12, 'noname', 'test', './images/loading.svg'));
 
 feedView.addAll(feed.posts);
 
 
-function likeFunc() {
-  const like = this;
-  if (like.getAttribute('src') === './images/like.svg') {
-    like.setAttribute('src', './images/redLike.svg');
-    like.parentNode.parentNode.querySelector('.numOfLikes').innerHTML = "1 people <img src='./images/smallHeart.svg' height='15px'> it";
-  } else {
-    like.setAttribute('src', './images/like.svg');
-    like.parentNode.parentNode.querySelector('.numOfLikes').innerHTML = "0 people <img src='./images/smallHeart.svg' height='15px'> it";
-  }
-}
-
-function commentFunc(input, keyCode) {
-  const text = input.value;
-  if (keyCode === 13 && text !== '') {
-    const comment = new Comment('noname', text);
-    input.parentNode.parentNode.querySelector('.comments').appendChild(comment.getHTML());
-    input.value = ''; // eslint-disable-line no-param-reassign
-  }
-}
-
-
-// onclick to seteventlistener + this
+// как разделять классы и что в них писать
+// где добавлять обработчики событий
+// что если разные js файлы вызывают друг друга
