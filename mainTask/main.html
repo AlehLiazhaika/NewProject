@@ -41,7 +41,7 @@
 
 
     <template id='postTemplate'>
-        <div data-id="" class='post'>
+        <div data-id='' class='post'>
             <div class='photoBase'><img class='photo' src='./images/loading.svg'></div>
             <div class='controlPanel'>
                 <div class='postHeader'>
@@ -54,9 +54,18 @@
                     </div>
                 </div>
                 <div class='info'>
-                    <div>
+                    <div class='postButtons'>
                         <button class='like'></button>
                         <button class='share'></button>
+                        <div data-id='' class='sharePanel'>
+                            <button class='shareBttn copyLink'></button>
+                            <button class='shareBttn inInstagram'></button>
+                            <button class='shareBttn inTwitter'></button>
+                            <button class='shareBttn inFacebook'></button>
+                            <button class='shareBttn inVk'></button>
+                            <button class='shareBttn inWatchMe'></button>
+                        </div>
+                        <div class='hider'></div>
                     </div>
                     <div class='numOfLikes'><span class='counter'></span> people <img src='./images/smallHeart.svg' height='15px'> it</div>
                     <div class='timeOfPost'>    </div>

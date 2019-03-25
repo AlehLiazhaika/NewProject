@@ -5,6 +5,11 @@ function recolorLike(event) {
   like.classList.toggle('liked');
 }
 
+function showShare(event) {
+  const shareBttn = event.target;
+  shareBttn.classList.toggle('shared');
+  shareBttn.parentNode.lastElementChild.classList.toggle('hiderOn');
+}
 
 function commentFunc(event) {
   const text = event.target.value;
@@ -39,6 +44,9 @@ class FeedView {
     this._feedEl.appendChild(container);
     Array.from(container.getElementsByClassName('like')).forEach((element) => {
       element.addEventListener('click', recolorLike);
+    });
+    Array.from(container.getElementsByClassName('share')).forEach((element) => {
+      element.addEventListener('click', showShare);
     });
     Array.from(container.getElementsByClassName('addComment')).forEach((element) => {
       element.addEventListener('keydown', commentFunc);

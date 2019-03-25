@@ -142,6 +142,12 @@ header{
     border-top: #E6E6E6 solid 1px;
 }
 
+.postButtons{
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
+
 .numOfLikes{
     font-family: 'Segoe UI Light', sans-serif;
     margin-left: 5px;
@@ -235,6 +241,8 @@ button:hover{
 }
 
 .like{
+    position: absolute;
+    left: 0px;
     height: 30px;
     width: 30px;
     border: none;
@@ -248,6 +256,8 @@ button:hover{
 }
 
 .share{
+    position: absolute;
+    left: 30px;
     height: 30px;
     width: 30px;
     border: none;
@@ -256,10 +266,13 @@ button:hover{
     background-size: cover;
 }
 
+.shared{
+    background-image: url(../images/shared.svg);
+}
+
 .like:active{
     height: 29px;
     width: 29px;
-    margin-right: 1px; 
     transition-duration: 0.1s;
 }
 
@@ -273,4 +286,59 @@ button:hover{
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+}
+
+.sharePanel{
+    position: absolute;
+    left: 60px;
+    width: 235px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.shareBttn{
+    height: 27px;
+    width: 27px;
+    border: none;
+    background-color: white;
+    background-size: cover;
+}
+
+.copyLink{
+    background-image: url(../images/link.svg);
+}
+
+.inInstagram{
+    background-image: url(../images/instagram.svg);
+}
+
+.inFacebook{
+    background-image: url(../images/facebook.svg);
+}
+
+.inTwitter{
+    background-image: url(../images/twitter.svg);
+}
+
+.inVk{
+    background-image: url(../images/vk.svg);
+}
+
+.inWatchMe{
+    background-image: url(../images/sendToFriend.svg);
+}
+
+.hider{
+    position: absolute;
+    height: 30px;
+    width: 236px;
+    right: 0px;
+    background: #FFFFFF;
+    transition-duration: 0.2s;
+}
+
+.hiderOn{
+    width: 0px;
+    transition-duration: 0.2s;
 }
