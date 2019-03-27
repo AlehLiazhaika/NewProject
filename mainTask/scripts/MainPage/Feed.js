@@ -1,58 +1,23 @@
-/* global PhotoPost, DefaultFilter, PhotoPostView */
+/* global FeedModel, FeedView */
 
 class Feed {
-  constructor() {
-    this._posts = [];
+  constructor(feedElement) {
+    this._feedModel = new FeedModel();
+    this._feedView = new FeedView(feedElement);
   }
 
-  get posts() {
-    return this._posts;
-  }
-
-  add(photoPost) {
-    if (PhotoPost.validate(photoPost) && this._posts.every(post => post.id !== photoPost.id)) {
-      this._posts.push(photoPost);
-      return true;
-    }
-    return false;
-  }
-
-  addAll(photoPosts) {
-    photoPosts.array.forEach((element) => {
-      this.add(element);
-    });
+  add(photoPosts) {
+    this._feedModel.add(this._feedView.add(photoPosts));
   }
 
   remove(id) {
-    const index = this._posts.map(element => element.id).indexOf(id);
-    if (~index) {
-      this._posts.splice(index, 1);
-      return true;
+    if (this._feedLogic.remove(id)) {
+      this._feedView.remove(id);
     }
-    return false;
   }
 
   clear() {
-    this._posts = [];
-  }
-
-  edit(id, photoPost) {
-    const index = this._posts.map(element => element.id).indexOf(id);
-    if (PhotoPost.validate(photoPost) && ~index) {
-      this._posts[index] = photoPost;
-      return true;
-    }
-    return false;
-  }
-
-  getPostsById(id) {
-    return this._posts.find(element => element.id === id);
-  }
-
-  getPosts(skip = 0, top = 10, filter = new DefaultFilter()) {
-    return this._posts
-      .filter(element => filter.check(element))
-      .sort((o1, o2) => o1.creationTime.getTime() - o2.creationTime.getTime())
-      .slice(skip, skip + top);
+    this._feedLogic.clear();
+    this._feedView.clear();
   }
 }

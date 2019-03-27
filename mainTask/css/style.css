@@ -143,9 +143,18 @@ header{
 }
 
 .postButtons{
-    position: relative;
+    display: flex;
+    flex-direction: row;
     height: 30px;
     width: 100%;
+}
+
+.postButtons span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
 }
 
 .numOfLikes{
@@ -241,8 +250,6 @@ button:hover{
 }
 
 .like{
-    position: absolute;
-    left: 0px;
     height: 30px;
     width: 30px;
     border: none;
@@ -251,29 +258,37 @@ button:hover{
     background-size: cover;
 }
 
+@keyframes likeAnim {
+    20% {
+        height: 24px;
+        width: 24px;
+    }
+}
+
 .liked{
+    animation-name: likeAnim;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
     background-image: url(../images/liked.svg);
+    transition-delay: 0.06s;
 }
 
 .share{
-    position: absolute;
-    left: 35px;
     height: 30px;
     width: 30px;
     border: none;
     background-color: white;
     background-image: url(../images/share.svg);
-    background-size: cover;
+    background-size: 100% 100%;
+    transition-duration: 0.3s;
 }
+
+
 
 .shared{
+    transform: scale(-1, 1);
+    transition-duration: 0.3s;
     background-image: url(../images/shared.svg);
-}
-
-.like:active{
-    height: 29px;
-    width: 29px;
-    transition-duration: 0.1s;
 }
 
 .counter{
@@ -283,20 +298,21 @@ button:hover{
 }
 
 .sharePanel{
-    position: absolute;
-    left: 65px;
-    width: 230px;
+    width: 0px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
+    transition-duration: 0.3s;
 }
 
 .shareBttn{
-    height: 27px;
-    width: 27px;
+    height: 0px;
+    width: 0px;
     border: none;
     background-color: white;
     background-size: cover;
+    transition-duration: 0.3s;
 }
 
 .copyLink{
@@ -323,16 +339,13 @@ button:hover{
     background-image: url(../images/sendToFriend.svg);
 }
 
-.hider{
-    position: absolute;
-    height: 30px;
-    width: 231px;
-    right: 0px;
-    background: #FFFFFF;
-    transition-duration: 0.2s;
+.sharePanelOn {
+    width: 230px;
+    transition-duration: 0.3s;
 }
 
-.hiderOn{
-    width: 0px;
-    transition-duration: 0.2s;
+.sharePanelOn .shareBttn {
+    height: 27px;
+    width: 27px;
+    transition-duration: 0.3s;
 }

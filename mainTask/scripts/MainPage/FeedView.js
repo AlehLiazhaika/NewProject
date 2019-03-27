@@ -1,4 +1,4 @@
-/* global PhotoPostView, CommentView */
+/* global ConvertorService */
 
 function recolorLike(event) {
   const like = event.target;
@@ -8,14 +8,14 @@ function recolorLike(event) {
 function showShare(event) {
   const shareBttn = event.target;
   shareBttn.classList.toggle('shared');
-  shareBttn.parentNode.lastElementChild.classList.toggle('hiderOn');
+  shareBttn.parentNode.parentNode.lastElementChild.classList.toggle('sharePanelOn');
 }
 
 function commentFunc(event) {
   const text = event.target.value;
   if (event.keyCode === 13 && text !== '') {
     const comment = new Comment('noname', text);
-    event.target.parentNode.parentNode.querySelector('.comments').appendChild(CommentView.getView(comment));
+    event.target.parentNode.parentNode.querySelector('.comments').appendChild(ConvertorService.toHTML(comment));
     event.target.value = ''; // eslint-disable-line no-param-reassign
   }
 }
@@ -31,7 +31,7 @@ class FeedView {
   }
 
   add(photoPost) {
-    this._feedEl.appendChild(PhotoPostView.getView(photoPost));
+    this._feedEl.appendChild(ConvertorService.toHTML(photoPost));
     document.getElementById(photoPost.id).querySelector('.like').addEventListener('click', recolorLike);
     document.getElementById(photoPost.id).querySelector('.addComment').addEventListener('keydown', commentFunc);
   }
@@ -39,7 +39,7 @@ class FeedView {
   addAll(photoPosts) {
     const container = document.createElement('div');
     photoPosts.forEach((element) => {
-      container.insertBefore(PhotoPostView.getView(element), container.children[0]);
+      container.insertBefore(ConvertorService.toHTML(element), container.children[0]);
     });
     this._feedEl.appendChild(container);
     Array.from(container.getElementsByClassName('like')).forEach((element) => {
@@ -51,5 +51,14 @@ class FeedView {
     Array.from(container.getElementsByClassName('addComment')).forEach((element) => {
       element.addEventListener('keydown', commentFunc);
     });
+  }
+
+  remove(id) {
+    const element = this._feedEl.getElementById(id);
+    element.parentNode.removeChild(element);
+  }
+
+  clear() {
+    this._feedEl.innerHTML = '';
   }
 }
