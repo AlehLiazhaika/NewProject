@@ -30,13 +30,7 @@ class FeedView {
     return this._feedEl;
   }
 
-  add(photoPost) {
-    this._feedEl.appendChild(ConvertorService.toHTML(photoPost));
-    document.getElementById(photoPost.id).querySelector('.like').addEventListener('click', recolorLike);
-    document.getElementById(photoPost.id).querySelector('.addComment').addEventListener('keydown', commentFunc);
-  }
-
-  addAll(photoPosts) {
+  add(photoPosts) {
     const container = document.createElement('div');
     photoPosts.forEach((element) => {
       container.insertBefore(ConvertorService.toHTML(element), container.children[0]);

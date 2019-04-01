@@ -8,7 +8,7 @@ class PhotoPost {
     this._hashTags = [];
     this._comments = [];
     this._likes = [];
-    this._creationTime = new Date(Date.now()); //+
+    this._creationTime = new Date(Date.now());
     this._photoLink = photoLink;
 
     this._hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
@@ -90,19 +90,12 @@ class PhotoPost {
     this._photoLink = photoLink;
   }
 
-  static validate(photoPost) {
-    return (
-      photoPost instanceof PhotoPost
-      && typeof photoPost.id === 'number'
-      && typeof photoPost.author === 'string'
-      && typeof photoPost.description === 'string'
-      && Array.isArray(photoPost.hashTags)
-      && Array.isArray(photoPost.comments)
-      && Array.isArray(photoPost.likes)
-      && photoPost.creationTime instanceof Date
-      && typeof photoPost.photoLink === 'string'
-    );
+  static parse(object) {
+    const post = new PhotoPost(object._id, object._author, object._description, object._photoLink); // eslint-disable-line no-underscore-dangle
+    post.hashTags = object._hashTags; // eslint-disable-line no-underscore-dangle
+    post.comments = object._comments; // eslint-disable-line no-underscore-dangle
+    post.likes = object._likes; // eslint-disable-line no-underscore-dangle
+    post.creationTime = Date.parse(object._creationTime); // eslint-disable-line no-underscore-dangle
+    return post;
   }
 }
-
-// addEventListener('click', likeFunc.bind(this));

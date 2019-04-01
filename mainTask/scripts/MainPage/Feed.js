@@ -7,17 +7,17 @@ class Feed {
   }
 
   add(photoPosts) {
-    this._feedModel.add(this._feedView.add(photoPosts));
+    this._feedView.add(this._feedModel.add(photoPosts));
   }
 
   remove(id) {
-    if (this._feedLogic.remove(id)) {
+    if (this._feedModel.remove(id)) {
       this._feedView.remove(id);
     }
   }
 
   clear() {
-    this._feedLogic.clear();
+    this._feedModel.clear();
     this._feedView.clear();
   }
 }

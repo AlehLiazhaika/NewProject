@@ -12,9 +12,10 @@ class FeedModel {
   add(photoPosts) {
     const arr = [];
     photoPosts.forEach((element) => {
-      if (PhotoPost.validate(element) && this._posts.every(post => post.id !== element.id)) {
-        this._posts.push(element);
-        arr.push(element);
+      const photoPost = PhotoPost.parse(element);
+      if (this._posts.every(post => post.id !== photoPost.id)) {
+        this._posts.push(photoPost);
+        arr.push(photoPost);
       }
     });
     return arr;

@@ -10,6 +10,19 @@ class ConvertorService {
     }
   }
 
+  static timeToString(time) {
+    if (time < 60) {
+      return 'right now';
+    }
+    if (time < 3600) {
+      return `${Math.floor(time / 60)} minutes ago`;
+    }
+    if (time < 86400) {
+      return `${Math.floor(time / 3600)} hours ago`;
+    }
+    return `${Math.floor(time / 86400)} days ago`;
+  }
+
   static _convertPhotoPost(photoPost) {
     const postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
     postTemplate.id = photoPost.id;
@@ -19,7 +32,7 @@ class ConvertorService {
     postTemplate.querySelector('.like').setAttribute('data-id', photoPost.id);
     postTemplate.querySelector('.counter').textContent = '0';
     postTemplate.querySelector('.counter').setAttribute('data-id', photoPost.id);
-    postTemplate.querySelector('.timeOfPost').textContent = `${Date.now() - photoPost.creationTime} seconds ago`;
+    postTemplate.querySelector('.timeOfPost').textContent = this.timeToString(Date.now() - photoPost.creationTime);
     return postTemplate.cloneNode(true);
   }
 
