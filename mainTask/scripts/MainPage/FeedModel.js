@@ -9,6 +9,10 @@ class FeedModel {
     return this._posts;
   }
 
+  updateLS() {
+    localStorage.setItem('posts', JSON.stringify(this._posts));
+  }
+
   add(photoPosts) {
     const arr = [];
     photoPosts.forEach((element) => {
@@ -18,6 +22,7 @@ class FeedModel {
         arr.push(photoPost);
       }
     });
+    this.updateLS();
     return arr;
   }
 
@@ -25,6 +30,7 @@ class FeedModel {
     const index = this._posts.map(element => element.id).indexOf(id);
     if (~index) {
       this._posts.splice(index, 1);
+      this.updateLS();
       return true;
     }
     return false;
@@ -32,5 +38,6 @@ class FeedModel {
 
   clear() {
     this._posts = [];
+    this.updateLS();
   }
 }

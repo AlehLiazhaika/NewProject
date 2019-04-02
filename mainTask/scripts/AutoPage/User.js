@@ -1,10 +1,10 @@
 class User {
-  constructor(email, name, username, password) {
+  constructor(email, name, username, password, ava) {
     this._email = email;
     this._name = name;
     this._username = username;
     this._password = password;
-    this._ava = '../images/defaultAva.svg';
+    this._ava = ava || '../images/defaultAva.svg';
   }
 
   get email() {
@@ -32,8 +32,11 @@ class User {
   }
 
   static parse(object) {
-    const user = new User(object._email, object._name, object._username, object._password); // eslint-disable-line no-underscore-dangle
-    user.ava = object._ava; // eslint-disable-line no-underscore-dangle
+    const user = new User(object._email,
+      object._name,
+      object._username,
+      object._password,
+      object._ava);
     return user;
   }
 }

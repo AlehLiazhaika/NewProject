@@ -1,17 +1,15 @@
 /* global likeFunc */
 
 class PhotoPost {
-  constructor(id, author, description, photoLink) {
+  constructor(id, author, description, photoLink, hashTags, comments, likes, creationTime) {
     this._id = id;
     this._author = author;
     this._description = description;
-    this._hashTags = [];
-    this._comments = [];
-    this._likes = [];
-    this._creationTime = new Date(Date.now());
+    this._hashTags = hashTags || description.match(/#[a-z][A-Z][0-9]*/g);
+    this._comments = comments || [];
+    this._likes = likes || [];
+    this._creationTime = Date.parse(creationTime) || new Date(Date.now());
     this._photoLink = photoLink;
-
-    this._hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
   }
 
   like(user) {
@@ -91,11 +89,14 @@ class PhotoPost {
   }
 
   static parse(object) {
-    const post = new PhotoPost(object._id, object._author, object._description, object._photoLink); // eslint-disable-line no-underscore-dangle
-    post.hashTags = object._hashTags; // eslint-disable-line no-underscore-dangle
-    post.comments = object._comments; // eslint-disable-line no-underscore-dangle
-    post.likes = object._likes; // eslint-disable-line no-underscore-dangle
-    post.creationTime = Date.parse(object._creationTime); // eslint-disable-line no-underscore-dangle
+    const post = new PhotoPost(object._id,
+      object._author,
+      object._description,
+      object._photoLink,
+      object._hashTags,
+      object._comments,
+      object._likes,
+      object._creationTime);
     return post;
   }
 }

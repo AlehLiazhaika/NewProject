@@ -74,6 +74,7 @@ if (localStorage.getItem('me') !== null) {
   goToMainPage();
 }
 
+
 document.getElementById('clickHereBttn').addEventListener('click', toggleInputs);
 document.getElementById('clickHereBttn').addEventListener('click', changeBttn);
 document.getElementById('clickHereBttn').addEventListener('click', changeText);
