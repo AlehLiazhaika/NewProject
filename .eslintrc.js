@@ -24,5 +24,6 @@ module.exports = {
 		'no-undef': 'error',
 		'no-unused-vars': 'off',
 		'no-underscore-dangle' : 'off',
+		'no-use-before-define' : 'off',
 	},
 };

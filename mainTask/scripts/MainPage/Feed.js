@@ -1,25 +1,16 @@
 /* global FeedModel, FeedView, EventsService */
 
-function recolorLike(event) {
-  const like = event.target;
-  like.classList.toggle('liked');
-}
 
 class Feed {
   constructor(feedElement) {
     this._feedModel = new FeedModel();
-    this._feedView = new FeedView(feedElement, this.recolorLike.bind(this));
-  }
-
-  recolorLike(postID) {
-    const post = this._feedModel.posts.find(element => element.id === +postID);
-    post.like(localStorage.getItem('me'));
-    alert(`${postID} liked`);
+    this._feedView = new FeedView(this.like.bind(this),
+      this.share.bind(this),
+      this.addComment.bind(this));
   }
 
   add(photoPosts) {
     const elements = this._feedView.add(this._feedModel.add(photoPosts));
-    EventsService.toPhotoPosts(elements);
   }
 
   remove(id) {
@@ -31,5 +22,20 @@ class Feed {
   clear() {
     this._feedModel.clear();
     this._feedView.clear();
+  }
+
+  like(postID) {
+    this._feedModel.like(postID);
+    this._feedView.like(postID);
+  }
+
+  share(postID) {
+    this._feedModel.share(postID);
+    this._feedView.share(postID);
+  }
+
+  addComment(postID, text) {
+    this._feedModel.addComment(postID, text);
+    this._feedView.addComment(postID);
   }
 }

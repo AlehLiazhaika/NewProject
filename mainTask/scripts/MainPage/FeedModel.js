@@ -2,11 +2,8 @@
 
 class FeedModel {
   constructor() {
+    this._me = localStorage.getItem('me');
     this._posts = [];
-  }
-
-  get posts() {
-    return this._posts;
   }
 
   updateLS() {
@@ -26,6 +23,10 @@ class FeedModel {
     return arr;
   }
 
+  getPost(postID) {
+    return this._posts.find(element => element.id === postID);
+  }
+
   remove(id) {
     const index = this._posts.map(element => element.id).indexOf(id);
     if (~index) {
@@ -38,6 +39,19 @@ class FeedModel {
 
   clear() {
     this._posts = [];
+    this.updateLS();
+  }
+
+  like(postID) {
+    this.getPost(postID).like(this._me);
+    this.updateLS();
+  }
+
+  share(postID) {
+  }
+
+  addComment(postID, text) {
+    this.getPost(postID).comment(new Comment(this._me, text));
     this.updateLS();
   }
 }

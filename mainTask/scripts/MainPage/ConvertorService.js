@@ -1,3 +1,10 @@
+function addComments(post, comments) {
+  const commentsPlace = post.querySelector('.comments');
+  comments.forEach((element) => {
+    commentsPlace.appendChild(ConvertorService.toHTML(element));
+  });
+}
+
 class ConvertorService {
   static toHTML(object) {
     switch (object.constructor.name) {
@@ -30,8 +37,14 @@ class ConvertorService {
     postTemplate.querySelector('.userName').textContent = photoPost.author;
     postTemplate.querySelector('.notice').textContent = photoPost.description;
     postTemplate.querySelector('.like').setAttribute('data-id', photoPost.id);
+    if (photoPost.isLiked(localStorage.getItem('me'))) {
+      postTemplate.querySelector('.like').classList.add('liked');
+    }
+    postTemplate.querySelector('.share').setAttribute('data-id', photoPost.id);
     postTemplate.querySelector('.counter').textContent = photoPost.likes.length;
     postTemplate.querySelector('.timeOfPost').textContent = this.timeToString((Date.now() - photoPost.creationTime) / 1000);
+    postTemplate.querySelector('.addComment').setAttribute('data-id', photoPost.id);
+    addComments(postTemplate, photoPost.comments);
     return postTemplate.cloneNode(true);
   }
 

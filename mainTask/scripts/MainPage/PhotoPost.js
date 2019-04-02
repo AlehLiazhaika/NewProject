@@ -6,22 +6,26 @@ class PhotoPost {
     this._author = author;
     this._description = description;
     this._hashTags = hashTags || description.match(/#[a-z][A-Z][0-9]*/g) || [];
-    this._comments = comments || [];
+    this._comments = comments.map(element => Comment.parse(element)) || [];
     this._likes = likes || [];
     this._creationTime = creationTime || Date.now();
     this._photoLink = photoLink;
   }
 
-  like(user) {
-    this._likes.push(user);
+  isLiked(username) {
+    return this._likes.includes(username);
   }
 
-  disLike(user) {
-    this._likes.remove(user);
+  like(username) {
+    if (this.isLiked(username)) {
+      this._likes.splice(this._likes.indexOf(username), 1);
+    } else {
+      this._likes.push(username);
+    }
   }
 
   comment(comment) {
-    this.comment.push(comment);
+    this._comments.push(comment);
   }
 
   get id() {

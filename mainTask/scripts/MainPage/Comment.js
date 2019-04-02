@@ -11,4 +11,8 @@ class Comment {
   get text() {
     return this._text;
   }
+
+  static parse(object) {
+    return new Comment(object._user, object._text);
+  }
 }
