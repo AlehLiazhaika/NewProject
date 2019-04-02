@@ -5,10 +5,10 @@ class PhotoPost {
     this._id = id;
     this._author = author;
     this._description = description;
-    this._hashTags = hashTags || description.match(/#[a-z][A-Z][0-9]*/g);
+    this._hashTags = hashTags || description.match(/#[a-z][A-Z][0-9]*/g) || [];
     this._comments = comments || [];
     this._likes = likes || [];
-    this._creationTime = Date.parse(creationTime) || new Date(Date.now());
+    this._creationTime = creationTime || Date.now();
     this._photoLink = photoLink;
   }
 

@@ -474,3 +474,11 @@ button:hover{
     height: 20px;
     color: red;
 }
+
+.signOut{
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+}

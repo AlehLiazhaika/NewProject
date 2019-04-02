@@ -44,6 +44,8 @@ function tryToSignUp() {
   const password = document.getElementById('passwordInput').value;
   if (localStorage.getItem(username) == null) {
     addUser(username, password);
+    localStorage.setItem('me', username);
+    goToMainPage();
   } else {
     document.getElementById('authorizationMessages').innerText = 'Oh, this username is already taken';
   }
@@ -81,6 +83,5 @@ document.getElementById('clickHereBttn').addEventListener('click', changeText);
 document.getElementById('signUpBttn').addEventListener('click', logIn);
 
 
-// submit
-// time ti string
-// json to classes object
+// check all likes
+// all events with posts move to controller?

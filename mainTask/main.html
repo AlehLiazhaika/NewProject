@@ -23,6 +23,7 @@
         <div id='rightIcons' class='rightIcons'>
             <a href='addingPage.html'><img class='headerImg' src='./images/bell.svg' height='25' alt='notify'></a>
             <a href='addingPage.html'><img class='headerImg' src='./images/message.svg' height='29' alt='chat'></a>
+            <bitton id="signOut" class="signOut">Sign out</bitton>
         </div>
     </header>
     <main>
@@ -57,7 +58,7 @@
                 <div class='info'>
                     <div class='postButtons'>
                         <span>
-                            <button class='like'></button>
+                            <button data-id='' class='like'></button>
                         </span>
                         <span>
                             <button class='share'></button>
@@ -96,6 +97,7 @@
 <script src='scripts/MainPage/Comment.js'></script>
 <script src='scripts/MainPage/Filter.js'></script>
 <script src='scripts/MainPage/ConvertorService.js'></script>
+<script src='scripts/MainPage/EventsService.js'></script>
 <script src='scripts/MainPage/mainPage.js'></script>
 </html>
 

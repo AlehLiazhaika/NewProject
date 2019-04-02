@@ -30,9 +30,8 @@ class ConvertorService {
     postTemplate.querySelector('.userName').textContent = photoPost.author;
     postTemplate.querySelector('.notice').textContent = photoPost.description;
     postTemplate.querySelector('.like').setAttribute('data-id', photoPost.id);
-    postTemplate.querySelector('.counter').textContent = '0';
-    postTemplate.querySelector('.counter').setAttribute('data-id', photoPost.id);
-    postTemplate.querySelector('.timeOfPost').textContent = this.timeToString(Date.now() - photoPost.creationTime);
+    postTemplate.querySelector('.counter').textContent = photoPost.likes.length;
+    postTemplate.querySelector('.timeOfPost').textContent = this.timeToString((Date.now() - photoPost.creationTime) / 1000);
     return postTemplate.cloneNode(true);
   }
 
