@@ -1,12 +1,6 @@
 /* global PhotoPost, Feed */
 
-function signOut(event) {
-  localStorage.removeItem('me');
-  document.location.href = './auto.html';
-}
-
-
-document.getElementById('signOut').addEventListener('click', signOut);
+// document.getElementById('meBttn').style.backgroundImage = `url(${JSON.parse(localStorage.getItem(localStorage.getItem('me')))._ava})`;
 
 const feed = new Feed(document.getElementById('feed'));
 feed.add(JSON.parse(localStorage.getItem('posts')));

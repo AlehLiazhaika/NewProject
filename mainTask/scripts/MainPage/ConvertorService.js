@@ -31,7 +31,7 @@ class ConvertorService {
   }
 
   static _convertPhotoPost(photoPost) {
-    const postTemplate = document.getElementById('postTemplate').content.querySelector('.post');
+    const postTemplate = document.getElementById('postTemplate').content.querySelector('.post').cloneNode(true);
     postTemplate.id = photoPost.id;
     postTemplate.querySelector('.photo').setAttribute('src', photoPost.photoLink);
     postTemplate.querySelector('.userName').textContent = photoPost.author;
@@ -45,13 +45,13 @@ class ConvertorService {
     postTemplate.querySelector('.timeOfPost').textContent = this.timeToString((Date.now() - photoPost.creationTime) / 1000);
     postTemplate.querySelector('.addComment').setAttribute('data-id', photoPost.id);
     addComments(postTemplate, photoPost.comments);
-    return postTemplate.cloneNode(true);
+    return postTemplate;
   }
 
   static _convertComment(comment) {
-    const commentTemplate = document.getElementById('commentTemplate').content.querySelector('.comment');
+    const commentTemplate = document.getElementById('commentTemplate').content.querySelector('.comment').cloneNode(true);
     commentTemplate.querySelector('.userName').textContent = comment.user;
     commentTemplate.querySelector('.commentText').textContent = comment.text;
-    return commentTemplate.cloneNode(true);
+    return commentTemplate;
   }
 }

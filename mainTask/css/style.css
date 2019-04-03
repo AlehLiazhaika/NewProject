@@ -40,15 +40,52 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 150px;
+    width: 60px;
     margin-left: 5px;
+}
+
+.addPhotoBttn{
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/add.svg);
+    background-size: cover;
 }
 
 .rightIcons{
     display: flex;
     justify-content: space-around;
-    width: 100px;
+    width: 150px;
     margin-right: 5px;
+}
+
+.topHundredBttn{
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/star.svg);
+    background-size: cover;
+}
+
+.directBttn{
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/direct.svg);
+    background-size: cover;
+}
+
+.meBttn{
+    height: 32px;
+    width: 32px;
+    border-radius: 17px; 
+    border: #86CCE4 solid 1px;
+    background-color: white;
+    background-image: url(../images/defaultAva.svg);
+    background-size: cover;
 }
 
 .label{
@@ -285,8 +322,6 @@ button:hover{
     transition-duration: 0.3s;
 }
 
-
-
 .shared{
     transform: scale(-1, 1);
     transition-duration: 0.3s;
@@ -317,28 +352,64 @@ button:hover{
     transition-duration: 0.3s;
 }
 
-.copyLink{
-    background-image: url(../images/link0.svg);
+.inSnapchat{
+    background-image: url(../images/snapchat.svg);
+    transition-duration: 0.2s;
+}
+
+.inSnapchat:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/snapchat_C.svg);
 }
 
 .inInstagram{
     background-image: url(../images/instagram.svg);
+    transition-duration: 0.2s;
+}
+
+.inInstagram:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/instagram_C.svg);
 }
 
 .inFacebook{
     background-image: url(../images/facebook.svg);
+    transition-duration: 0.2s;
+}
+
+.inFacebook:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/facebook_C.svg);
 }
 
 .inTwitter{
     background-image: url(../images/twitter.svg);
+    transition-duration: 0.2s;
+}
+
+.inTwitter:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/twitter_C.svg);
 }
 
 .inVk{
     background-image: url(../images/vk.svg);
+    transition-duration: 0.2s;
 }
 
-.inWatchMe{
-    background-image: url(../images/sendToFriend.svg);
+.inVk:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/vk_C.svg);
+}
+
+.inTelegram{
+    background-image: url(../images/telegram.svg);
+    transition-duration: 0.2s;
+}
+
+.inTelegram:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/telegram_C.svg);
 }
 
 .sharePanelOn {

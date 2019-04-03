@@ -29,9 +29,7 @@ function changeText(event) {
   }
 }
 
-function addUser(username, password) {
-  const email = document.getElementById('mailInput').value;
-  const name = document.getElementById('nameInput').value;
+function addUser(email, name, username, password) {
   localStorage.setItem(username, JSON.stringify(new User(email, name, username, password)));
 }
 
@@ -39,31 +37,50 @@ function goToMainPage() {
   document.location.href = './main.html';
 }
 
+function printErrorMessage(text) {
+  document.getElementById('authorizationMessages').innerText = text;
+}
+
+function signUp(email, name, username, password) {
+  addUser(email, name, username, password);
+  localStorage.setItem('me', username);
+  goToMainPage();
+}
+
 function tryToSignUp() {
+  const email = document.getElementById('mailInput').value;
+  const name = document.getElementById('nameInput').value;
   const username = document.getElementById('userNameInput').value;
   const password = document.getElementById('passwordInput').value;
-  if (localStorage.getItem(username) == null) {
-    addUser(username, password);
-    localStorage.setItem('me', username);
-    goToMainPage();
+
+  if (email !== '' && name !== '' && username !== '' && password !== '') {
+    if (localStorage.getItem(username) === null) {
+      signUp(email, name, username, password);
+    } else {
+      printErrorMessage('Oh, this username is already taken');
+    }
   } else {
-    document.getElementById('authorizationMessages').innerText = 'Oh, this username is already taken';
+    printErrorMessage('Pls, fill all fields');
   }
+}
+
+function logIn(username) {
+  localStorage.setItem('me', username);
+  goToMainPage();
 }
 
 function tryToLogIn() {
   const username = document.getElementById('userNameInput').value;
   const password = document.getElementById('passwordInput').value;
-  const user = User.parse(JSON.parse(localStorage.getItem(username)));
-  if (user === null || password !== user.password) {
-    document.getElementById('authorizationMessages').innerText = 'Incorrect username or password';
+  const user = JSON.parse(localStorage.getItem(username));
+  if (user === null || password !== user._password) {
+    printErrorMessage('Incorrect username or password');
   } else {
-    localStorage.setItem('me', username);
-    goToMainPage();
+    logIn(username);
   }
 }
 
-function logIn(event) {
+function sendInfo(event) {
   const bttn = event.target;
   if (bttn.classList[0] === 'signUpBttn') {
     tryToSignUp();
@@ -80,7 +97,7 @@ if (localStorage.getItem('me') !== null) {
 document.getElementById('clickHereBttn').addEventListener('click', toggleInputs);
 document.getElementById('clickHereBttn').addEventListener('click', changeBttn);
 document.getElementById('clickHereBttn').addEventListener('click', changeText);
-document.getElementById('signUpBttn').addEventListener('click', logIn);
+document.getElementById('signUpBttn').addEventListener('click', sendInfo);
 
 
 // check all likes
