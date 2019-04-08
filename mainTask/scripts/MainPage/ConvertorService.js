@@ -34,6 +34,7 @@ class ConvertorService {
     const postTemplate = document.getElementById('postTemplate').content.querySelector('.post').cloneNode(true);
     postTemplate.id = photoPost.id;
     postTemplate.querySelector('.photo').setAttribute('src', photoPost.photoLink);
+    postTemplate.querySelector('.ava').setAttribute('src', JSON.parse(localStorage.getItem(photoPost.author))._ava);
     postTemplate.querySelector('.userName').textContent = photoPost.author;
     postTemplate.querySelector('.notice').textContent = photoPost.description;
     postTemplate.querySelector('.like').setAttribute('data-id', photoPost.id);

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="title">watch Me</title>
+    <link href='css/style.css' type='text/css' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel='shortcut icon' href='./images/shortCut.png' type='image/png'>
+</head>
+
+<body>
+    
+    <header id="header">
+        <div id='leftIcons' class='leftIcons'>
+            <button id='addPhotoBttn' class='addPhotoBttn'></button>
+        </div>
+        <label>
+            <a href='main.html'><img id='label' class='label' src='./images/label.png' alt='watch'></a>
+        </label>
+        <input id='search' class='search' placeholder='Search'>
+        <div id='rightIcons' class='rightIcons'>
+            <button id='topHundredBttn' class='topHundredBttn'></button>
+            <button id='directBttn' class='directBttn'></button>
+            <button id="meBttn" class="meBttn"></button>
+        </div>
+    </header>
+
+    <main id="profile" class="profile">
+        <div id="userHead" class="userHead">
+            <img id="avaProfile" class="avaProfile" src="images/defaultAva.svg">
+            <div id="profilePanel" class="profilePanel">
+                <div id="nickname" class="nickname">noname</div>
+                <div id="status" class="status">I'm fine</div>
+                <div id="profileInfo" class="profileInfo">
+                    <div>
+                        <div id="following"><span id="followingCounter">0</span> following</div>
+                        <div id="followers"><span id="followersCounter">0</span> followers</div>
+                    </div>
+                    <button id="settingsBttn" class="settingsBttn"></button>
+                    <button id="followBttn" class="followBttn">follow</button>
+                </div>
+                <div id="profileSettings" class='profileSettings'>
+                    <label class='changeAva' for="changeAva"><div>avatar</div></label><input id="changeAva" type="file" name="changeAva" accept="image/png, image/jpeg">
+                    <button id="changeStatus" class='changeStatus'>status</button>
+                    <button id="changeAccess" class='changeAccess'>privacy</button>
+                </div>
+            </div>
+        </div>
+        <div id="userPhotos" class="userPhotos">
+
+        </div>
+    </main>
+
+    <footer>
+        <div id='footerLabel' class='footerLabel'><div>© 2019 </div><img id='footerLabelImg' class='footerLabelImg' src='./images/label.png'></div>
+        <div id='footerCont' class='footerCont'>
+            <div id='aboutMe' class='aboutMe'>Aleh Liazhaika | 2 course 6 group | aleh.liazhaika@gmail.com</div>
+            <div id='lastExchange' class='lastExchange'>last exchange 03.03.2019</div>
+        </div>
+    </footer>
+
+</body>
+<script src='scripts/HeaderView.js'></script>
+<script src='scripts/Header.js'></script>
+<script src='scripts/UserPage/ProfileModel.js'></script>
+<script src='scripts/UserPage/ProfileView.js'></script>
+<script src='scripts/UserPage/Profile.js'></script>
+<script src='scripts/AutoPage/User.js'></script>
+<script src='scripts/UserPage/userPage.js'></script>
+</html>
+
+<!--1f0060-->

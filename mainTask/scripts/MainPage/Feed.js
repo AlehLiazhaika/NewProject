@@ -2,40 +2,45 @@
 
 
 class Feed {
-  constructor(feedElement) {
-    this._feedModel = new FeedModel();
-    this._feedView = new FeedView(this.like.bind(this),
+  constructor() {
+    this._model = new FeedModel();
+    this._view = new FeedView(this.like.bind(this),
       this.share.bind(this),
       this.addComment.bind(this));
   }
 
   add(photoPosts) {
-    const elements = this._feedView.add(this._feedModel.add(photoPosts));
+    const elements = this._view.add(this._model.add(photoPosts));
+    if (JSON.parse(localStorage.getItem('posts')).length > this._model.length) {
+      document.getElementById('loadMoreBttn').style.display = 'block';
+    } else {
+      document.getElementById('loadMoreBttn').style.display = 'none';
+    }
   }
 
   remove(id) {
-    if (this._feedModel.remove(id)) {
-      this._feedView.remove(id);
+    if (this._model.remove(id)) {
+      this._view.remove(id);
     }
   }
 
   clear() {
-    this._feedModel.clear();
-    this._feedView.clear();
+    this._model.clear();
+    this._view.clear();
   }
 
   like(postID) {
-    this._feedModel.like(postID);
-    this._feedView.like(postID);
+    this._model.like(postID);
+    this._view.like(postID);
   }
 
   share(postID) {
-    this._feedModel.share(postID);
-    this._feedView.share(postID);
+    this._model.share(postID);
+    this._view.share(postID);
   }
 
   addComment(postID, text) {
-    this._feedModel.addComment(postID, text);
-    this._feedView.addComment(postID);
+    this._model.addComment(postID, text);
+    this._view.addComment(postID);
   }
 }

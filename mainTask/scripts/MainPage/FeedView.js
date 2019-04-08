@@ -23,9 +23,19 @@ function showComment(input) {
   }
 }
 
+function goToProfile(username) {
+  localStorage.setItem('targetUser', username);
+  document.location.href = './profile.html';
+}
+
 class FeedView {
   constructor(like, share, addComment) {
     this._feed = document.getElementById('feed');
+    this._toProfileWrapper = {
+      handleEvent(event) {
+        goToProfile(event.target.innerText);
+      },
+    };
     this._likeWrapper = {
       handleEvent(event) {
         const postID = parseInt(event.target.getAttribute('data-id'), 10);
@@ -55,6 +65,9 @@ class FeedView {
       container.insertBefore(ConvertorService.toHTML(element), container.children[0]);
     });
     this._feed.appendChild(container);
+    Array.from(container.getElementsByClassName('userName')).forEach((element) => {
+      element.addEventListener('click', this._toProfileWrapper);
+    });
     Array.from(container.getElementsByClassName('like')).forEach((element) => {
       element.addEventListener('click', this._likeWrapper);
     });

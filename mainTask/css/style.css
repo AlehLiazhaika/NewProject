@@ -60,32 +60,27 @@ header{
     margin-right: 5px;
 }
 
-.topHundredBttn{
+.rightIcons button{
     height: 30px;
     width: 30px;
     border: none;
     background-color: white;
-    background-image: url(../images/star.svg);
     background-size: cover;
 }
 
+.topHundredBttn{
+    background-image: url(../images/star.svg);
+}
+
 .directBttn{
-    height: 30px;
-    width: 30px;
-    border: none;
-    background-color: white;
     background-image: url(../images/direct.svg);
-    background-size: cover;
 }
 
 .meBttn{
     height: 32px;
     width: 32px;
-    border-radius: 17px; 
-    border: #86CCE4 solid 1px;
-    background-color: white;
+    border-radius: 16px;
     background-image: url(../images/defaultAva.svg);
-    background-size: cover;
 }
 
 .label{
@@ -95,7 +90,7 @@ header{
 .search{
     height: 25px;
     width: 200px;
-    border-radius: 4px; 
+    border-radius: 4px;
     border: #E6E6E6 solid 1px;
     text-align: center;
     color: #595959;
@@ -221,6 +216,7 @@ main{
 }
 
 .loadMoreButton{
+    display: none;
     width: 822px;
     height: 40px;
     cursor: pointer;
@@ -552,4 +548,160 @@ button:hover{
     font-size: 10px;
     text-align: center;
     cursor: pointer;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.userHead{
+    margin-top: 80px;
+    padding-bottom: 10px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: #E6E6E6 solid 1px;
+}
+
+.avaProfile{
+    margin: 10px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.profilePanel{
+    margin: 5px 0px 20px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nickname{
+    font-size: 30px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.status{
+    height: 21px;
+    font-size: 20px;
+    font-family: 'Segoe UI Light', sans-serif;
+    font-style: italic;
+    color: #757575;
+}
+
+.profileInfo{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profileInfo > div{
+    width: 210px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profileInfo > div > div{
+    font-size: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #595959;
+}
+
+.settingsBttn{
+    display: none;
+    margin-top: 5px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/settings.svg);
+    background-size: cover;
+    transition-duration: 0.2s;
+}
+
+.followBttn{
+    display: none;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Segoe UI Light', sans-serif;
+    color: #FAFAFA;
+    background: #FF7A42;
+    transition-duration: 0.1s;
+}
+
+.unfollowBttn{
+    background: #86CCE4;
+    transition-duration: 0.1s;
+}
+
+.profileSettings{
+    height: 30px;
+    width: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition-duration: 0.2s;
+}
+
+.profileSettingsOn{
+    width: 250px;
+    overflow: hidden;
+    transition-duration: 0.2s;
+}
+
+.profileSettings button{
+    overflow: hidden;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: none;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+.changeAva{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: none;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+.changeAva{
+    vertical-align:middle;
+}
+
+#changeAva{
+    display: none;
+}
+
+.changeAva:hover{
+    color: #FF7A42;
+}
+
+.changeStatus:hover{
+    color: #DC918A;
+}
+
+.changeAccess:hover{
+    color: #86CCE4;
+}
+
+.userPhotos{
+    width: 600px;
+}
+
+.spin{
+    transform: rotate(90deg);
+    transition-duration: 0.2s;
 }

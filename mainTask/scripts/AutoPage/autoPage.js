@@ -98,7 +98,3 @@ document.getElementById('clickHereBttn').addEventListener('click', toggleInputs)
 document.getElementById('clickHereBttn').addEventListener('click', changeBttn);
 document.getElementById('clickHereBttn').addEventListener('click', changeText);
 document.getElementById('signUpBttn').addEventListener('click', sendInfo);
-
-
-// check all likes
-// all events with posts move to controller?
