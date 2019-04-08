@@ -30,19 +30,22 @@
             <img id="avaProfile" class="avaProfile" src="images/defaultAva.svg">
             <div id="profilePanel" class="profilePanel">
                 <div id="nickname" class="nickname">noname</div>
-                <div id="status" class="status">I'm fine</div>
+                <input type="text" id="status" class="status" readonly></input>
                 <div id="profileInfo" class="profileInfo">
-                    <div>
+                    <div class="followsContainer">
                         <div id="following"><span id="followingCounter">0</span> following</div>
                         <div id="followers"><span id="followersCounter">0</span> followers</div>
                     </div>
-                    <button id="settingsBttn" class="settingsBttn"></button>
-                    <button id="followBttn" class="followBttn">follow</button>
+                    <div id="personalBttns" class="personalBttns">
+                        <button id="settingsBttn" class="settingsBttn"></button>
+                        <button id="signOutBttn" class="signOutBttn"></button>
+                        <button id="followBttn" class="followBttn">follow</button>
+                    </div>
                 </div>
                 <div id="profileSettings" class='profileSettings'>
                     <label class='changeAva' for="changeAva"><div>avatar</div></label><input id="changeAva" type="file" name="changeAva" accept="image/png, image/jpeg">
                     <button id="changeStatus" class='changeStatus'>status</button>
-                    <button id="changeAccess" class='changeAccess'>privacy</button>
+                    <button id="changeAccess" class='changeAccess'>privacy <img id="privacyImg" class="publicPrivacyImg" width="13px" height="10px"></button>
                 </div>
             </div>
         </div>
@@ -55,7 +58,7 @@
         <div id='footerLabel' class='footerLabel'><div>© 2019 </div><img id='footerLabelImg' class='footerLabelImg' src='./images/label.png'></div>
         <div id='footerCont' class='footerCont'>
             <div id='aboutMe' class='aboutMe'>Aleh Liazhaika | 2 course 6 group | aleh.liazhaika@gmail.com</div>
-            <div id='lastExchange' class='lastExchange'>last exchange 03.03.2019</div>
+            <div id='lastExchange' class='lastExchange'>last exchange 08.04.2019</div>
         </div>
     </footer>
 

@@ -9,7 +9,7 @@ class User {
     this._following = following || [];
     this._followers = followers || [];
     this._status = status || '';
-    this._privacy = privacy || 'private';
+    this._privacy = privacy || 'public';
   }
 
   get email() {
@@ -48,6 +48,10 @@ class User {
     return this._status;
   }
 
+  get privacy() {
+    return this._privacy;
+  }
+
   set password(password) {
     this._password = password;
   }
@@ -60,8 +64,24 @@ class User {
     this._status = status;
   }
 
+  set privacy(privacy) {
+    this._privacy = privacy;
+  }
+
+  isPublic() {
+    return this._privacy === 'public';
+  }
+
   isPrivate() {
-    return this._privacy === 'private';
+    return !this.isPublic();
+  }
+
+  togglePrivacy() {
+    if (this.isPublic()) {
+      this._privacy = 'private';
+    } else {
+      this._privacy = 'public';
+    }
   }
 
   isFollower(user) {

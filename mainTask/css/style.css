@@ -583,11 +583,15 @@ button:hover{
 }
 
 .status{
+    border-radius: 2px;
+    cursor: default;
+    border: #FAFAFA solid 1px;
     height: 21px;
     font-size: 20px;
     font-family: 'Segoe UI Light', sans-serif;
     font-style: italic;
     color: #757575;
+    background: #FAFAFA;
 }
 
 .profileInfo{
@@ -597,14 +601,14 @@ button:hover{
     justify-content: space-between;
 }
 
-.profileInfo > div{
-    width: 210px;
+.followsContainer{
+    width: 220px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.profileInfo > div > div{
+.followsContainer div{
     font-size: 20px;
     font-family: 'Segoe UI', sans-serif;
     color: #595959;
@@ -612,7 +616,7 @@ button:hover{
 
 .settingsBttn{
     display: none;
-    margin-top: 5px;
+    margin: 5px 0px 0px 5px;
     height: 20px;
     width: 20px;
     border: none;
@@ -622,7 +626,25 @@ button:hover{
     transition-duration: 0.2s;
 }
 
+.signOutBttn{
+    display: none;
+    margin: 5px 0px 0px 5px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/sign-out.svg);
+    background-size: cover;
+}
+
+.personalBttns{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
 .followBttn{
+    margin-left: 15px;
     display: none;
     height: 30px;
     width: 100px;
@@ -704,4 +726,17 @@ button:hover{
 .spin{
     transform: rotate(90deg);
     transition-duration: 0.2s;
+}
+
+.publicPrivacyImg{
+    content: url(../images/padlock-unlock.svg);
+}
+
+.privatePrivacyImg{
+    content: url(../images/padlock.svg);
+}
+
+.activeStatus{
+    cursor: text;
+    border: #86CCE4 solid 1px;
 }

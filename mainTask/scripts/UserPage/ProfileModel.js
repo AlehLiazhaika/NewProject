@@ -22,6 +22,16 @@ class ProfileModel {
     updateUser(this._me);
   }
 
+  changeStatus(status) {
+    this._me.status = status;
+    updateUser(this._me);
+  }
+
+  changeAccess() {
+    this._me.togglePrivacy();
+    updateUser(this._me);
+  }
+
   getProfileFollowers() {
     return this._user.followers.length;
   }
