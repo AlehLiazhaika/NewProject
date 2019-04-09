@@ -1,29 +1,38 @@
 /* global likeFunc */
 
 class PhotoPost {
-  constructor(id, author, description, photoLink) {
+  constructor(id, author, description, photoLink, hashTags, comments, likes, creationTime) {
     this._id = id;
     this._author = author;
     this._description = description;
-    this._hashTags = [];
-    this._comments = [];
-    this._likes = [];
-    this._creationTime = new Date(Date.now()); //+
+    this._hashTags = hashTags || description.match(/#[a-z][A-Z][0-9]*/g) || [];
+    this._comments = PhotoPost.parseComments(comments);
+    this._likes = likes || [];
+    this._creationTime = creationTime || Date.now();
     this._photoLink = photoLink;
-
-    this._hashTags.push(description.match(/#[a-z][A-Z][0-9]*/g));
   }
 
-  like(user) {
-    this._likes.push(user);
+  static parseComments(comments) {
+    if (comments) {
+      return comments.map(element => Comment.parse(element));
+    }
+    return [];
   }
 
-  disLike(user) {
-    this._likes.remove(user);
+  isLiked(username) {
+    return this._likes.includes(username);
+  }
+
+  like(username) {
+    if (this.isLiked(username)) {
+      this._likes.splice(this._likes.indexOf(username), 1);
+    } else {
+      this._likes.push(username);
+    }
   }
 
   comment(comment) {
-    this.comment.push(comment);
+    this._comments.push(comment);
   }
 
   get id() {
@@ -90,19 +99,15 @@ class PhotoPost {
     this._photoLink = photoLink;
   }
 
-  static validate(photoPost) {
-    return (
-      photoPost instanceof PhotoPost
-      && typeof photoPost.id === 'number'
-      && typeof photoPost.author === 'string'
-      && typeof photoPost.description === 'string'
-      && Array.isArray(photoPost.hashTags)
-      && Array.isArray(photoPost.comments)
-      && Array.isArray(photoPost.likes)
-      && photoPost.creationTime instanceof Date
-      && typeof photoPost.photoLink === 'string'
-    );
+  static parse(object) {
+    const post = new PhotoPost(object._id,
+      object._author,
+      object._description,
+      object._photoLink,
+      object._hashTags,
+      object._comments,
+      object._likes,
+      object._creationTime);
+    return post;
   }
 }
-
-// addEventListener('click', likeFunc.bind(this));

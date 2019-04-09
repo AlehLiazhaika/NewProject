@@ -26,6 +26,7 @@ header{
     top: 0px;
     position: fixed;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 60px;
@@ -35,22 +36,58 @@ header{
     overflow: hidden;
 }
 
+textarea {
+    resize: none;
+}
+
 .leftIcons{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 150px;
+    width: 60px;
     margin-left: 5px;
+}
+
+.addPhotoBttn{
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/add.svg);
+    background-size: cover;
 }
 
 .rightIcons{
     display: flex;
     justify-content: space-around;
-    width: 100px;
+    width: 150px;
     margin-right: 5px;
 }
 
+.rightIcons button{
+    border: none;
+    background-color: white;
+    background-size: cover;
+}
 
+.topHundredBttn{
+    height: 30px;
+    width: 30px;
+    background-image: url(../images/star.svg);
+}
+
+.directBttn{
+    height: 30px;
+    width: 30px;
+    background-image: url(../images/direct.svg);
+}
+
+.meBttn{
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    background-image: url(../images/defaultAva.svg);
+}
 
 .label{
     height: 50px;
@@ -59,14 +96,17 @@ header{
 .search{
     height: 25px;
     width: 200px;
-    border-radius: 4px; 
+    border-radius: 4px;
     border: #E6E6E6 solid 1px;
     text-align: center;
     color: #595959;
 }
 
+main{
+    min-height: calc(100vh - 87px);
+}
+
 .feed{
-    min-height: calc(100vh - 157px);
     display: flex;
     flex-direction: column;
     margin-top: 70px;
@@ -181,7 +221,8 @@ header{
     font-size: 15px;
 }
 
-.loadMoreButton{
+.loadMoreBttn{
+    display: none;
     width: 822px;
     height: 40px;
     cursor: pointer;
@@ -193,11 +234,11 @@ header{
     transition-duration: 0.5s;
 }
 
-.loadMoreButton:hover{
+.loadMoreBttn:hover{
     background: #E6E6E6;
 }
 
-.loadMoreButton:active{
+.loadMoreBttn:active{
     background: #ffffff;
 }
 
@@ -283,8 +324,6 @@ button:hover{
     transition-duration: 0.3s;
 }
 
-
-
 .shared{
     transform: scale(-1, 1);
     transition-duration: 0.3s;
@@ -315,28 +354,64 @@ button:hover{
     transition-duration: 0.3s;
 }
 
-.copyLink{
-    background-image: url(../images/link0.svg);
+.inSnapchat{
+    background-image: url(../images/snapchat.svg);
+    transition-duration: 0.2s;
+}
+
+.inSnapchat:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/snapchat_C.svg);
 }
 
 .inInstagram{
     background-image: url(../images/instagram.svg);
+    transition-duration: 0.2s;
+}
+
+.inInstagram:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/instagram_C.svg);
 }
 
 .inFacebook{
     background-image: url(../images/facebook.svg);
+    transition-duration: 0.2s;
+}
+
+.inFacebook:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/facebook_C.svg);
 }
 
 .inTwitter{
     background-image: url(../images/twitter.svg);
+    transition-duration: 0.2s;
+}
+
+.inTwitter:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/twitter_C.svg);
 }
 
 .inVk{
     background-image: url(../images/vk.svg);
+    transition-duration: 0.2s;
 }
 
-.inWatchMe{
-    background-image: url(../images/sendToFriend.svg);
+.inVk:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/vk_C.svg);
+}
+
+.inTelegram{
+    background-image: url(../images/telegram.svg);
+    transition-duration: 0.2s;
+}
+
+.inTelegram:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/telegram_C.svg);
 }
 
 .sharePanelOn {
@@ -348,4 +423,413 @@ button:hover{
     height: 27px;
     width: 27px;
     transition-duration: 0.3s;
+}
+
+.authorizationPanel{
+    margin-top: 20px;
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #FFFFFF;
+    border: #E6E6E6 solid 1px;
+}
+
+.authorizationForm{
+    padding: 20px 0px;
+    height: 560px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.authorizationText{
+    width: 250px;
+    text-align: center;
+    font-size: 20px;
+    color: #757575;
+}
+
+.topicText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+}
+
+.authorizationInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.labels{
+    margin: 5px 0px;
+    cursor: text;
+    padding-left: 8px;
+    height: 34px;
+    width: 254px;
+    border: #E6E6E6 solid 1px;
+    border-radius: 2px;
+    transition-duration: 0.2s;
+}
+
+.authorizationInputs label input::-webkit-input-placeholder{
+    color: #757575;
+}
+
+.authorizationInputs label input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: black;
+    font-size: 15px;
+    transition-duration: 0.2s;
+}
+
+.logInText{
+    margin-top: 15px;
+    font-size: 17px;
+    color: #757575;
+}
+
+.clickHereBttn{
+    border: none;
+    background: none;
+    color: #FF7A42;
+    font-size: 17px;
+}
+
+.signUpBttn{
+    margin: 5px 0px;
+    height: 34px;
+    width: 262px;
+    border-radius: 2px;
+    background: #DC918A;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition-duration: 0.5s;
+}
+
+.logInBttn{
+    margin: 5px 0px;
+    height: 34px;
+    width: 262px;
+    border-radius: 2px;
+    background: #86CCE4;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition-duration: 0.5s;
+}
+
+.logInBttn:active{
+    background: #55ACEE;
+}
+
+.signUpBttn:active{
+    background: #FF7A42;
+    transition-duration: 0.1s;
+}
+
+.blocked{
+    cursor: default;
+    opacity: 0;
+    transition-duration: 0.2s;
+}
+
+.authorizationMessages{
+    height: 20px;
+    color: red;
+}
+
+.signOut{
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.userHead{
+    margin-top: 80px;
+    padding-bottom: 10px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: #E6E6E6 solid 1px;
+}
+
+.avaProfile{
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.profilePanel{
+    margin: 5px 0px 20px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nickname{
+    font-size: 30px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.status{
+    border-radius: 2px;
+    cursor: default;
+    border: #FAFAFA solid 1px;
+    height: 21px;
+    font-size: 20px;
+    font-family: 'Segoe UI Light', sans-serif;
+    font-style: italic;
+    color: #757575;
+    background: #FAFAFA;
+}
+
+.profileInfo{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.followsContainer{
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.followsContainer div{
+    font-size: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #595959;
+}
+
+.settingsBttn{
+    display: none;
+    margin: 5px 0px 0px 5px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/settings.svg);
+    background-size: cover;
+    transition-duration: 0.2s;
+}
+
+.signOutBttn{
+    display: none;
+    margin: 5px 0px 0px 5px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/sign-out.svg);
+    background-size: cover;
+}
+
+.personalBttns{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.followBttn{
+    margin-left: 15px;
+    display: none;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Segoe UI Light', sans-serif;
+    color: #FAFAFA;
+    background: #FF7A42;
+    transition-duration: 0.1s;
+}
+
+.unfollowBttn{
+    background: #86CCE4;
+    transition-duration: 0.1s;
+}
+
+.profileSettings{
+    height: 30px;
+    width: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition-duration: 0.2s;
+}
+
+.profileSettingsOn{
+    width: 250px;
+    overflow: hidden;
+    transition-duration: 0.2s;
+}
+
+.profileSettings button{
+    overflow: hidden;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: none;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+.changeAva{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: none;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+.changeAva{
+    vertical-align:middle;
+}
+
+#changeAva{
+    display: none;
+}
+
+.changeAva:hover{
+    color: #FF7A42;
+}
+
+.changeStatus:hover{
+    color: #DC918A;
+}
+
+.changeAccess:hover{
+    color: #86CCE4;
+}
+
+.userPhotos{
+    width: 600px;
+}
+
+.spin{
+    transform: rotate(90deg);
+    transition-duration: 0.2s;
+}
+
+.publicPrivacyImg{
+    content: url(../images/padlock-unlock.svg);
+}
+
+.privatePrivacyImg{
+    content: url(../images/padlock.svg);
+}
+
+.activeStatus{
+    cursor: text;
+    border: #86CCE4 solid 1px;
+}
+
+.postEditor{
+    margin-top: 100px; 
+    display: flex;
+    flex-direction: row;
+    border: #E6E6E6 solid 1px;
+    background: #FFFFFF;
+}
+
+.loadPhotoBase{
+    cursor: pointer;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.loadPhotoControlPanel{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+.loadPhoto{
+    display: none;
+}
+
+.uploadImg{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image: url(../images/uploadOff.svg);
+    background-size: cover;
+}
+
+.discriptionBase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discriptionBase > div {
+    cursor: default;
+    padding: 10px;
+    color: #595959;
+}
+
+.discribtion{
+    border: none;
+    font-family: 'Segoe UI Semilight', sans-serif;
+}
+
+.forDiscription{
+    cursor: text;
+    padding: 15px;
+    border-top: #E6E6E6 solid 1px;
+    border-bottom: #E6E6E6 solid 1px; 
+}
+
+.publishPostBttn{
+    height: 40px;
+    width: 150px;
+    border-radius: 2px;
+    background: #FF7A42;
+    border: none;
+    color: #FFFFFF;
+    font-size: 26px;
+    transition-duration: 0.1s;
+}
+
+.publishPostBttn:active{
+    background: #DC918A;
+    font-size: 24px;
+    transition-duration: 0.1s;
+}
+
+.loadedPhoto{
+    display: none;
+    height: 500px;
 }

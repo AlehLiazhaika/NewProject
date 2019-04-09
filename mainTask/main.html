@@ -10,19 +10,18 @@
 
 <body>
     
-    <header>
+    <header id="header">
         <div id='leftIcons' class='leftIcons'>
-            <a href='addingPage.html'><img class='headerImg' src='./images/add.svg' height='35' alt='addPage'></a>
-            <a href='addingPage.html'><img class='headerImg' src='./images/fire.svg' height='28' alt='top'></a>
-            <a href='addingPage.html'><img class='headerImg' src='./images/star.svg' height='28' alt='hot'></a>
+            <button id='addPhotoBttn' class='addPhotoBttn'></button>
         </div>
         <label>
             <a href='main.html'><img id='label' class='label' src='./images/label.png' alt='watch'></a>
         </label>
         <input id='search' class='search' placeholder='Search'>
         <div id='rightIcons' class='rightIcons'>
-            <a href='addingPage.html'><img class='headerImg' src='./images/bell.svg' height='25' alt='notify'></a>
-            <a href='addingPage.html'><img class='headerImg' src='./images/message.svg' height='29' alt='chat'></a>
+            <button id='topHundredBttn' class='topHundredBttn'></button>
+            <button id='directBttn' class='directBttn'></button>
+            <button id="meBttn" class="meBttn"></button>
         </div>
     </header>
     <main>
@@ -30,13 +29,13 @@
             
         </div>
         
-        <button id='loadMoreButton' class='loadMoreButton'>Load more</button>
+        <button id='loadMoreBttn' class='loadMoreBttn'>Load more</button>
     </main>
     <footer>
         <div id='footerLabel' class='footerLabel'><div>© 2019 </div><img id='footerLabelImg' class='footerLabelImg' src='./images/label.png'></div>
         <div id='footerCont' class='footerCont'>
             <div id='aboutMe' class='aboutMe'>Aleh Liazhaika | 2 course 6 group | aleh.liazhaika@gmail.com</div>
-            <div id='lastExchange' class='lastExchange'>last exchange 03.03.2019</div>
+            <div id='lastExchange' class='lastExchange'>last exchange 10.04.2019</div>
         </div>
     </footer>
 
@@ -57,14 +56,14 @@
                 <div class='info'>
                     <div class='postButtons'>
                         <span>
-                            <button class='like'></button>
+                            <button data-id='' class='like'></button>
                         </span>
                         <span>
                             <button class='share'></button>
                         </span>
                         <div data-id='' class='sharePanel'>
-                            <button class='shareBttn copyLink'></button>
-                            <button class='shareBttn inWatchMe'></button>
+                            <button class='shareBttn inTelegram'></button>
+                            <button class='shareBttn inSnapchat'></button>
                             <button class='shareBttn inInstagram'></button>
                             <button class='shareBttn inTwitter'></button>
                             <button class='shareBttn inFacebook'></button>
@@ -75,7 +74,7 @@
                     <div class='timeOfPost'>    </div>
                 </div>
                 <div>
-                    <input class='addComment' placeholder='Add comment...'>
+                    <input data-id='' class='addComment' type="text" placeholder='Add comment...'>
                 </div>
             </div>
         </div>
@@ -89,8 +88,11 @@
     </template>
 
 </body>
+<script src='scripts/HeaderView.js'></script>
+<script src='scripts/Header.js'></script>
 <script src='scripts/MainPage/FeedModel.js'></script>
 <script src='scripts/MainPage/FeedView.js'></script>
+<script src='scripts/MainPage/Feed.js'></script>
 <script src='scripts/MainPage/PhotoPost.js'></script>
 <script src='scripts/MainPage/Comment.js'></script>
 <script src='scripts/MainPage/Filter.js'></script>
