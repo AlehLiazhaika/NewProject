@@ -215,7 +215,7 @@ main{
     font-size: 15px;
 }
 
-.loadMoreButton{
+.loadMoreBttn{
     display: none;
     width: 822px;
     height: 40px;
@@ -228,11 +228,11 @@ main{
     transition-duration: 0.5s;
 }
 
-.loadMoreButton:hover{
+.loadMoreBttn:hover{
     background: #E6E6E6;
 }
 
-.loadMoreButton:active{
+.loadMoreBttn:active{
     background: #ffffff;
 }
 
@@ -567,6 +567,7 @@ button:hover{
 .avaProfile{
     margin: 10px;
     height: 100px;
+    width: 100px;
     border-radius: 50px;
 }
 
