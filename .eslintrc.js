@@ -25,6 +25,5 @@ module.exports = {
 		'no-unused-vars': 'off',
 		'no-underscore-dangle' : 'off',
 		'no-use-before-define' : 'off',
-		'class-methods-use-this' : 'off',
 	},
 };

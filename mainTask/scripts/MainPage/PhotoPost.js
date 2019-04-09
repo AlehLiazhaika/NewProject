@@ -6,10 +6,17 @@ class PhotoPost {
     this._author = author;
     this._description = description;
     this._hashTags = hashTags || description.match(/#[a-z][A-Z][0-9]*/g) || [];
-    this._comments = comments.map(element => Comment.parse(element)) || [];
+    this._comments = PhotoPost.parseComments(comments);
     this._likes = likes || [];
     this._creationTime = creationTime || Date.now();
     this._photoLink = photoLink;
+  }
+
+  static parseComments(comments) {
+    if (comments) {
+      return comments.map(element => Comment.parse(element));
+    }
+    return [];
   }
 
   isLiked(username) {

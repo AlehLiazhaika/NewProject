@@ -4,7 +4,7 @@ class User {
     this._name = name;
     this._username = username;
     this._password = password;
-    this._ava = `../mainTask/images/${username}/ava.png`;
+    this._ava = ava || '../mainTask/images/defaultAva.svg';
     this._posts = posts || [];
     this._following = following || [];
     this._followers = followers || [];

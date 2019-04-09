@@ -12,21 +12,21 @@ class Profile {
 
   follow() {
     this._model.follow();
-    this._view.follow(this._model.getProfileFollowers());
+    ProfileView.follow(this._model.getProfileFollowers());
   }
 
   changeAva(image) {
     this._model.changeAva(image);
-    this._view.changeAva(image);
+    ProfileView.changeAva(image);
   }
 
   changeStatus(status) {
     this._model.changeStatus(status);
-    this._view.changeStatus();
+    ProfileView.changeStatus();
   }
 
   changeAccess() {
     this._model.changeAccess();
-    this._view.changeAccess();
+    ProfileView.changeAccess();
   }
 }

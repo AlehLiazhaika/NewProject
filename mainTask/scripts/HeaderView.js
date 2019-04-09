@@ -1,6 +1,6 @@
 
-function addPhoto() {
-
+function toAddPhoto() {
+  document.location.href = './addPhoto.html';
 }
 
 function toTopList() {
@@ -22,8 +22,7 @@ function toMyProfile() {
 
 class HeaderView {
   constructor() {
-    document.getElementById('meBttn').style.backgroundImage = `url(${JSON.parse(localStorage.getItem(localStorage.getItem('me')))._ava})`;
-    document.getElementById('addPhotoBttn').addEventListener('click', addPhoto);
+    document.getElementById('addPhotoBttn').addEventListener('click', toAddPhoto);
     document.getElementById('topHundredBttn').addEventListener('click', toTopList);
     document.getElementById('directBttn').addEventListener('click', toDirect);
     document.getElementById('meBttn').addEventListener('click', toMyProfile);

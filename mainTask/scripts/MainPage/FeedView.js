@@ -1,8 +1,8 @@
 /* global ConvertorService */
 
 
-function recolorLike(like) {
-  like.classList.toggle('liked');
+function recolorLike(likeBttn) {
+  likeBttn.classList.toggle('liked');
 }
 
 function changeLikeCounter(counter, changeValue) {
@@ -23,14 +23,45 @@ function showComment(input) {
   }
 }
 
+function like(postID) {
+  const post = document.getElementById(`${postID}`);
+  const likeImg = post.querySelector('.like');
+  const likeCounter = post.querySelector('.counter');
+  recolorLike(likeImg);
+  if (likeImg.classList.length === 2) {
+    changeLikeCounter(likeCounter, 1);
+  } else {
+    changeLikeCounter(likeCounter, -1);
+  }
+}
+
+function share(postID) {
+  const shareBttn = document.getElementById(`${postID}`).querySelector('.share');
+  toggleSharePanel(shareBttn);
+}
+
+function addComment(postID) {
+  const input = document.getElementById(`${postID}`).querySelector('.addComment');
+  showComment(input);
+}
+
 function goToProfile(username) {
   localStorage.setItem('targetUser', username);
   document.location.href = './profile.html';
 }
 
+function remove(postID) {
+  const element = document.getElementById(`${postID}`);
+  element.parentNode.removeChild(element);
+}
+
+function clear() {
+  document.getElementById('feed').innerHTML = '';
+}
+
+
 class FeedView {
-  constructor(like, share, addComment) {
-    this._feed = document.getElementById('feed');
+  constructor(likeFunc, shareFunc, addCommentFunc) {
     this._toProfileWrapper = {
       handleEvent(event) {
         goToProfile(event.target.innerText);
@@ -39,13 +70,13 @@ class FeedView {
     this._likeWrapper = {
       handleEvent(event) {
         const postID = parseInt(event.target.getAttribute('data-id'), 10);
-        like(postID);
+        likeFunc(postID);
       },
     };
     this._shareWrapper = {
       handleEvent(event) {
         const postID = parseInt(event.target.getAttribute('data-id'), 10);
-        share(postID);
+        shareFunc(postID);
       },
     };
     this._addCommentWrapper = {
@@ -53,7 +84,7 @@ class FeedView {
         if (event.keyCode === 13) {
           const postID = parseInt(event.target.getAttribute('data-id'), 10);
           const text = event.target.value;
-          addComment(postID, text);
+          addCommentFunc(postID, text);
         }
       },
     };
@@ -64,7 +95,7 @@ class FeedView {
     photoPosts.forEach((element) => {
       container.insertBefore(ConvertorService.toHTML(element), container.children[0]);
     });
-    this._feed.appendChild(container);
+    document.getElementById('feed').appendChild(container);
     Array.from(container.getElementsByClassName('userName')).forEach((element) => {
       element.addEventListener('click', this._toProfileWrapper);
     });
@@ -80,34 +111,23 @@ class FeedView {
     return container;
   }
 
-  remove(postID) {
-    const element = this._feed.querySelector(`#${CSS.escape(postID)}`);
-    element.parentNode.removeChild(element);
+  static remove(postID) {
+    remove(postID);
   }
 
-  clear() {
-    this._feed.innerHTML = '';
+  static clear() {
+    clear();
   }
 
-  like(postID) {
-    const post = this._feed.querySelector(`#${CSS.escape(postID)}`);
-    const like = post.querySelector('.like');
-    const likeCounter = post.querySelector('.counter');
-    recolorLike(like);
-    if (like.classList.length === 2) {
-      changeLikeCounter(likeCounter, 1);
-    } else {
-      changeLikeCounter(likeCounter, -1);
-    }
+  static like(postID) {
+    like(postID);
   }
 
-  share(postID) {
-    const shareBttn = this._feed.querySelector(`#${CSS.escape(postID)}`).querySelector('.share');
-    toggleSharePanel(shareBttn);
+  static share(postID) {
+    share(postID);
   }
 
-  addComment(postID) {
-    const input = this._feed.querySelector(`#${CSS.escape(postID)}`).querySelector('.addComment');
-    showComment(input);
+  static addComment(postID) {
+    addComment(postID);
   }
 }

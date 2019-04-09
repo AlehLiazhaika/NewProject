@@ -36,6 +36,10 @@ header{
     overflow: hidden;
 }
 
+textarea {
+    resize: none;
+}
+
 .leftIcons{
     display: flex;
     justify-content: space-around;
@@ -61,18 +65,20 @@ header{
 }
 
 .rightIcons button{
-    height: 30px;
-    width: 30px;
     border: none;
     background-color: white;
     background-size: cover;
 }
 
 .topHundredBttn{
+    height: 30px;
+    width: 30px;
     background-image: url(../images/star.svg);
 }
 
 .directBttn{
+    height: 30px;
+    width: 30px;
     background-image: url(../images/direct.svg);
 }
 
@@ -740,4 +746,90 @@ button:hover{
 .activeStatus{
     cursor: text;
     border: #86CCE4 solid 1px;
+}
+
+.postEditor{
+    margin-top: 100px; 
+    display: flex;
+    flex-direction: row;
+    border: #E6E6E6 solid 1px;
+    background: #FFFFFF;
+}
+
+.loadPhotoBase{
+    cursor: pointer;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.loadPhotoControlPanel{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+.loadPhoto{
+    display: none;
+}
+
+.uploadImg{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image: url(../images/uploadOff.svg);
+    background-size: cover;
+}
+
+.discriptionBase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discriptionBase > div {
+    cursor: default;
+    padding: 10px;
+    color: #595959;
+}
+
+.discribtion{
+    border: none;
+    font-family: 'Segoe UI Semilight', sans-serif;
+}
+
+.forDiscription{
+    cursor: text;
+    padding: 15px;
+    border-top: #E6E6E6 solid 1px;
+    border-bottom: #E6E6E6 solid 1px; 
+}
+
+.publishPostBttn{
+    height: 40px;
+    width: 150px;
+    border-radius: 2px;
+    background: #FF7A42;
+    border: none;
+    color: #FFFFFF;
+    font-size: 26px;
+    transition-duration: 0.1s;
+}
+
+.publishPostBttn:active{
+    background: #DC918A;
+    font-size: 24px;
+    transition-duration: 0.1s;
+}
+
+.loadedPhoto{
+    display: none;
+    height: 500px;
 }

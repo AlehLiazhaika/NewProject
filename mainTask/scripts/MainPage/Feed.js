@@ -10,7 +10,7 @@ class Feed {
   }
 
   add(photoPosts) {
-    const elements = this._view.add(this._model.add(photoPosts));
+    this._view.add(this._model.add(photoPosts));
     if (JSON.parse(localStorage.getItem('posts')).length > this._model.length) {
       document.getElementById('loadMoreBttn').style.display = 'block';
     } else {
@@ -20,27 +20,27 @@ class Feed {
 
   remove(id) {
     if (this._model.remove(id)) {
-      this._view.remove(id);
+      FeedView.remove(id);
     }
   }
 
   clear() {
     this._model.clear();
-    this._view.clear();
+    FeedView.clear();
   }
 
   like(postID) {
     this._model.like(postID);
-    this._view.like(postID);
+    FeedView.like(postID);
   }
 
   share(postID) {
     this._model.share(postID);
-    this._view.share(postID);
+    FeedView.share(postID);
   }
 
   addComment(postID, text) {
     this._model.addComment(postID, text);
-    this._view.addComment(postID);
+    FeedView.addComment(postID);
   }
 }

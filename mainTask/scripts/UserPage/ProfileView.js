@@ -29,27 +29,29 @@ function toUser(user) {
 }
 
 class ProfileView {
-  constructor(user, follow, changeAva, changeStatus, changeAccess) {
-    this._profile = document.getElementById('profile');
-    this._follow = follow;
+  constructor(user, followFunc, changeAvaFunc, changeStatusFunc, changeAccessFunc) {
+    this._followWrapper = {
+      handleEvent(event) {
+        followFunc();
+      },
+    };
     this._changeAvaWrapper = {
       handleEvent(event) {
-        const data = document.getElementById('changeAva').files[0];
-        const image = window.URL.createObjectURL(new Blob([data], { type: 'image/png, image/jpeg' }));
-        changeAva(image);
+        const image = `./images/usersPhotos/${document.getElementById('changeAva').files[0].name}`;
+        changeAvaFunc(image);
       },
     };
     this._changeStatusWrapper = {
       handleEvent(event) {
         if (event.keyCode === 13) {
           const status = event.target.value;
-          changeStatus(status);
+          changeStatusFunc(status);
         }
       },
     };
     this._changeAccessWrapper = {
       handleEvent(event) {
-        changeAccess();
+        changeAccessFunc();
       },
     };
     toUser(user);
@@ -68,7 +70,7 @@ class ProfileView {
 
   addFollowBttn() {
     document.getElementById('followBttn').style.display = 'block';
-    document.getElementById('followBttn').addEventListener('click', this._follow);
+    document.getElementById('followBttn').addEventListener('click', this._followWrapper);
   }
 
   addPersonalBttn() {
@@ -77,25 +79,26 @@ class ProfileView {
     document.getElementById('settingsBttn').addEventListener('click', settingsOn);
     document.getElementById('signOutBttn').addEventListener('click', signOut);
     document.getElementById('status').addEventListener('keydown', this._changeStatusWrapper);
+    document.getElementById('changeAva').addEventListener('change', this._changeAvaWrapper);
     document.getElementById('changeStatus').addEventListener('click', this.changeStatus);
     document.getElementById('changeAccess').addEventListener('click', this._changeAccessWrapper);
   }
 
-  follow(followers) {
+  static follow(followers) {
     recolorFollow();
-    this._profile.querySelector('#followersCounter').innerText = followers;
+    document.getElementById('followersCounter').innerText = followers;
   }
 
-  changeAva(image) {
-    this._profile.querySelector('#avaProfile').setAttribute('src', image);
+  static changeAva(image) {
+    document.getElementById('avaProfile').setAttribute('src', image);
   }
 
-  changeStatus() {
+  static changeStatus() {
     document.getElementById('status').toggleAttribute('readonly');
     document.getElementById('status').classList.toggle('activeStatus');
   }
 
-  changeAccess() {
-    this._profile.querySelector('#privacyImg').classList.toggle('privatePrivacyImg');
+  static changeAccess() {
+    document.getElementById('profile').classList.toggle('privatePrivacyImg');
   }
 }
