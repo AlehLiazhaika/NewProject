@@ -17,7 +17,7 @@ class PostEditorModel {
     const posts = JSON.parse(localStorage.getItem('posts'));
     let id = 0;
     if (posts.length !== 0) {
-      id = posts[posts.length - 1]._id;
+      id = posts[posts.length - 1]._id + 1;
     }
     const post = new PhotoPost(id, this._me.username, discription, image);
     this._me.posts.push(post);

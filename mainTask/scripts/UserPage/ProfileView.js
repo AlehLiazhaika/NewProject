@@ -80,7 +80,7 @@ class ProfileView {
     document.getElementById('signOutBttn').addEventListener('click', signOut);
     document.getElementById('status').addEventListener('keydown', this._changeStatusWrapper);
     document.getElementById('changeAva').addEventListener('change', this._changeAvaWrapper);
-    document.getElementById('changeStatus').addEventListener('click', this.changeStatus);
+    document.getElementById('changeStatus').addEventListener('click', ProfileView.changeStatus);
     document.getElementById('changeAccess').addEventListener('click', this._changeAccessWrapper);
   }
 
@@ -99,6 +99,6 @@ class ProfileView {
   }
 
   static changeAccess() {
-    document.getElementById('profile').classList.toggle('privatePrivacyImg');
+    document.getElementById('privacyImg').classList.toggle('privatePrivacyImg');
   }
 }
