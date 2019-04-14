@@ -1,11 +1,18 @@
+/* global ConvertorService, MiniPost */
+
 class User {
-  constructor(email, name, username, password, ava, posts, following, followers, status, privacy) {
+  constructor(email, name, username, password, ava, miniPosts, following, followers, status, privacy) {
     this._email = email;
     this._name = name;
     this._username = username;
     this._password = password;
     this._ava = ava || '../mainTask/images/defaultAva.svg';
-    this._posts = posts || [];
+    this._miniPosts = [];
+    if (miniPosts) {
+      miniPosts.forEach((object) => {
+        this._miniPosts.push(MiniPost.parse(object));
+      });
+    }
     this._following = following || [];
     this._followers = followers || [];
     this._status = status || '';
@@ -32,8 +39,8 @@ class User {
     return this._ava;
   }
 
-  get posts() {
-    return this._posts;
+  get miniPosts() {
+    return this._miniPosts;
   }
 
   get following() {
@@ -116,7 +123,7 @@ class User {
       object._username,
       object._password,
       object._ava,
-      object._posts,
+      object._miniPosts,
       object._following,
       object._followers,
       object._status,

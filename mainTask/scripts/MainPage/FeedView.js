@@ -64,7 +64,7 @@ class FeedView {
   constructor(likeFunc, shareFunc, addCommentFunc) {
     this._toProfileWrapper = {
       handleEvent(event) {
-        goToProfile(event.target.innerText);
+        goToProfile(event.target.getAttribute('data-user'));
       },
     };
     this._likeWrapper = {
@@ -96,6 +96,9 @@ class FeedView {
       container.insertBefore(ConvertorService.toHTML(element), container.children[0]);
     });
     document.getElementById('feed').appendChild(container);
+    Array.from(container.getElementsByClassName('ava')).forEach((element) => {
+      element.addEventListener('click', this._toProfileWrapper);
+    });
     Array.from(container.getElementsByClassName('userName')).forEach((element) => {
       element.addEventListener('click', this._toProfileWrapper);
     });

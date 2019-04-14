@@ -48,6 +48,7 @@ class FeedModel {
   }
 
   share(postID) {
+    this.empty = null;
   }
 
   addComment(postID, text) {
