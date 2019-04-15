@@ -69,12 +69,67 @@ function like(postID) {
   }
 }
 
+function openPostWrapper(event, likeFunc, shareFunc, addCommentFunc) {
+  const id = event.target.getAttribute('data-id');
+  const posts = JSON.parse(localStorage.getItem('posts'));
+  const post = PhotoPost.parse(posts.find(element => element._id === parseInt(id, 10)));
+  const grayBack = document.getElementById('grayBackTemplate').content.querySelector('.grayBack').cloneNode(true);
+  grayBack.appendChild(ConvertorService.toHTML(post));
+  document.getElementById('body').appendChild(grayBack);
+  document.querySelector('.grayBack').addEventListener('click', (addedEvent) => {
+    if (addedEvent.target === grayBack) {
+      document.getElementById('body').removeChild(grayBack);
+    }
+  });
+  document.querySelector('.ava').addEventListener('click', (addedEvent) => {
+    goToProfile(addedEvent.target.getAttribute('data-user'));
+  });
+  Array.from(document.getElementsByClassName('userName')).forEach((element) => {
+    element.addEventListener('click', (addedEvent) => {
+      goToProfile(addedEvent.target.getAttribute('data-user'));
+    });
+  });
+  document.querySelector('.like').addEventListener('click', (addedEvent) => {
+    const postID = parseInt(addedEvent.target.getAttribute('data-id'), 10);
+    likeFunc(postID);
+  });
+  document.querySelector('.share').addEventListener('click', (addedEvent) => {
+    const postID = parseInt(addedEvent.target.getAttribute('data-id'), 10);
+    shareFunc(postID);
+  });
+  document.querySelector('.addComment').addEventListener('keydown', (addedEvent) => {
+    if (addedEvent.keyCode === 13) {
+      const postID = parseInt(addedEvent.target.getAttribute('data-id'), 10);
+      const text = addedEvent.target.value;
+      addCommentFunc(postID, text);
+    }
+  });
+}
+
+function showMiniPosts(user, openPostWrapperFunс, likeFunc, shareFunc, addCommentFunc) {
+  if (user.username !== localStorage.getItem('me') && user.isPrivate() && !user.isFollowing(localStorage.getItem('me'))) {
+    document.getElementById('userPhotos').innerHTML = '';
+    const warning = document.getElementById('privateAccountTemplate').content.querySelector('.privateAccount').cloneNode(true);
+    document.getElementById('userPhotos').appendChild(warning);
+  } else {
+    document.getElementById('userPhotos').innerHTML = '';
+    const { miniPosts } = user;
+    const userPhotos = document.getElementById('userPhotos');
+    miniPosts.forEach((miniPost) => {
+      userPhotos.insertBefore(ConvertorService.toHTML(miniPost), userPhotos.firstChild);
+    });
+    Array.from(userPhotos.getElementsByClassName('miniPost')).forEach((element) => {
+      element.addEventListener('click', (event) => { openPostWrapperFunс(event, likeFunc, shareFunc, addCommentFunc); });
+    });
+  }
+}
+
 class ProfileView {
   constructor(user, followFunc, changeAvaFunc, changeStatusFunc, changeAccessFunc, likeFunc, shareFunc, addCommentFunc) {
     this._followWrapper = {
       handleEvent(event) {
         followFunc();
-        this.showMiniPosts(user);
+        showMiniPosts(user, openPostWrapper, likeFunc, shareFunc, addCommentFunc);
       },
     };
     this._changeAvaWrapper = {
@@ -96,62 +151,8 @@ class ProfileView {
         changeAccessFunc();
       },
     };
-    this._openPostWrapper = {
-      handleEvent(event) {
-        const id = event.target.getAttribute('data-id');
-        const posts = JSON.parse(localStorage.getItem('posts'));
-        const post = PhotoPost.parse(posts.find(element => element._id === parseInt(id, 10)));
-        const grayBack = document.getElementById('grayBackTemplate').content.querySelector('.grayBack').cloneNode(true);
-        grayBack.appendChild(ConvertorService.toHTML(post));
-        document.getElementById('body').appendChild(grayBack);
-        document.querySelector('.grayBack').addEventListener('click', (addedEvent) => {
-          if (addedEvent.target === grayBack) {
-            document.getElementById('body').removeChild(grayBack);
-          }
-        });
-        document.querySelector('.ava').addEventListener('click', (addedEvent) => {
-          goToProfile(addedEvent.target.getAttribute('data-user'));
-        });
-        document.querySelector('.userName').addEventListener('click', (addedEvent) => {
-          goToProfile(addedEvent.target.getAttribute('data-user'));
-        });
-        document.querySelector('.like').addEventListener('click', (addedEvent) => {
-          const postID = parseInt(addedEvent.target.getAttribute('data-id'), 10);
-          likeFunc(postID);
-        });
-        document.querySelector('.share').addEventListener('click', (addedEvent) => {
-          const postID = parseInt(addedEvent.target.getAttribute('data-id'), 10);
-          shareFunc(postID);
-        });
-        document.querySelector('.addComment').addEventListener('keydown', (addedEvent) => {
-          if (addedEvent.keyCode === 13) {
-            const postID = parseInt(addedEvent.target.getAttribute('data-id'), 10);
-            const text = addedEvent.target.value;
-            addCommentFunc(postID, text);
-          }
-        });
-      },
-    };
     this.toUser(user);
-    this.showMiniPosts(user);
-  }
-
-  showMiniPosts(user) {
-    if (user.username !== localStorage.getItem('me') && user.isPrivate() && !user.isFollowing(localStorage.getItem('me'))) {
-      document.getElementById('userPhotos').innerHTML = '';
-      const warning = document.getElementById('privateAccountTemplate').content.querySelector('.privateAccount').cloneNode(true);
-      document.getElementById('userPhotos').appendChild(warning);
-    } else {
-      document.getElementById('userPhotos').innerHTML = '';
-      const { miniPosts } = user;
-      const userPhotos = document.getElementById('userPhotos');
-      miniPosts.forEach((miniPost) => {
-        userPhotos.insertBefore(ConvertorService.toHTML(miniPost), userPhotos.firstChild);
-      });
-      Array.from(userPhotos.getElementsByClassName('miniPost')).forEach((element) => {
-        element.addEventListener('click', this._openPostWrapper);
-      });
-    }
+    showMiniPosts(user, openPostWrapper, likeFunc, shareFunc, addCommentFunc);
   }
 
   toUser(user) {
