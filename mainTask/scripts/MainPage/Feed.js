@@ -7,10 +7,10 @@ class Feed {
     this._view = new FeedView(this.like.bind(this),
       this.share.bind(this),
       this.addComment.bind(this));
+    this._view.add(this._model.posts);
   }
 
   add(photoPosts) {
-    this._view.add(this._model.add(photoPosts));
     if (JSON.parse(localStorage.getItem('posts')).length > this._model.length) {
       document.getElementById('loadMoreBttn').style.display = 'block';
     } else {

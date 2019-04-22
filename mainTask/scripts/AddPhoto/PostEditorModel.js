@@ -1,4 +1,4 @@
-/* global User, PhotoPost */
+/* global User, PhotoPost, MiniPost */
 
 function updatePosts(posts) {
   localStorage.setItem('posts', JSON.stringify(posts));
@@ -17,10 +17,10 @@ class PostEditorModel {
     const posts = JSON.parse(localStorage.getItem('posts'));
     let id = 0;
     if (posts.length !== 0) {
-      id = posts[posts.length - 1]._id;
+      id = posts[posts.length - 1]._id + 1;
     }
     const post = new PhotoPost(id, this._me.username, discription, image);
-    this._me.posts.push(post);
+    this._me.miniPosts.push(new MiniPost(id, image));
     updateUser(this._me);
     posts.push(post);
     updatePosts(posts);

@@ -12,6 +12,8 @@ class ConvertorService {
         return this._convertPhotoPost(object);
       case 'Comment':
         return this._convertComment(object);
+      case 'MiniPost':
+        return this._convertMiniPost(object);
       default:
         return undefined;
     }
@@ -35,7 +37,9 @@ class ConvertorService {
     postTemplate.id = photoPost.id;
     postTemplate.querySelector('.photo').setAttribute('src', photoPost.photoLink);
     postTemplate.querySelector('.ava').setAttribute('src', JSON.parse(localStorage.getItem(photoPost.author))._ava);
+    postTemplate.querySelector('.ava').setAttribute('data-user', photoPost.author);
     postTemplate.querySelector('.userName').textContent = photoPost.author;
+    postTemplate.querySelector('.userName').setAttribute('data-user', photoPost.author);
     postTemplate.querySelector('.notice').textContent = photoPost.description;
     postTemplate.querySelector('.like').setAttribute('data-id', photoPost.id);
     if (photoPost.isLiked(localStorage.getItem('me'))) {
@@ -52,7 +56,15 @@ class ConvertorService {
   static _convertComment(comment) {
     const commentTemplate = document.getElementById('commentTemplate').content.querySelector('.comment').cloneNode(true);
     commentTemplate.querySelector('.userName').textContent = comment.user;
+    commentTemplate.querySelector('.userName').setAttribute('data-user', comment.user);
     commentTemplate.querySelector('.commentText').textContent = comment.text;
     return commentTemplate;
+  }
+
+  static _convertMiniPost(miniPost) {
+    const miniPostTemplate = document.getElementById('miniPostTemplate').content.querySelector('.miniPost').cloneNode(true);
+    miniPostTemplate.setAttribute('data-id', miniPost.id);
+    miniPostTemplate.setAttribute('src', miniPost.image);
+    return miniPostTemplate;
   }
 }

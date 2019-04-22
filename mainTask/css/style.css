@@ -113,6 +113,7 @@ main{
 }
 
 .post{
+    cursor: default;
     display: flex;
     margin: 15px 0px;
     border: #E6E6E6 solid 1px;
@@ -141,17 +142,17 @@ main{
 }
 
 .postHeader{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     padding: 5px 0px 0px 5px;
     height: 35px;
 }
 
 .ava{
+    cursor: pointer;
     height: 30px;
     margin-right: 3px; 
     border-radius: 15px;
-    border: #E6E6E6 solid 1px;
 }
 
 .comments{
@@ -211,13 +212,17 @@ main{
     color: #aaaaaa; 
 }
 
+.addComment::-webkit-input-placeholder{
+    color: #757575;
+}
+
 .addComment{
     padding: 8px 8px;
     height: 34px;
     width: 284px;
     border: none;
     border-top: #E6E6E6 solid 1px;
-    color: #757575;
+    color: black;
     font-size: 15px;
 }
 
@@ -564,7 +569,7 @@ button:hover{
 .userHead{
     margin-top: 80px;
     padding-bottom: 10px;
-    width: 600px;
+    width: 630px;
     display: flex;
     flex-direction: row;
     border-bottom: #E6E6E6 solid 1px;
@@ -575,6 +580,7 @@ button:hover{
     height: 100px;
     width: 100px;
     border-radius: 50px;
+    overflow: hidden;
 }
 
 .profilePanel{
@@ -832,4 +838,33 @@ button:hover{
 .loadedPhoto{
     display: none;
     height: 500px;
+}
+
+.miniPost{
+    cursor: pointer;
+    height: 200px;
+    margin: 5px;
+}
+
+.userPhotos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+}
+
+.grayBack{
+    cursor: pointer;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(70, 70, 70, 0.7);
+}
+
+.privateAccount{
+    margin-top: 15px;
+    font-size: 30px;
+    color: #757575;
 }

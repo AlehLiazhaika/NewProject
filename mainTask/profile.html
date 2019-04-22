@@ -8,22 +8,22 @@
     <link rel='shortcut icon' href='./images/shortCut.png' type='image/png'>
 </head>
 
-<body>
+<body id='body'>
     
-    <header id="header">
-        <div id='leftIcons' class='leftIcons'>
-            <button id='addPhotoBttn' class='addPhotoBttn'></button>
-        </div>
-        <label>
-            <a href='main.html'><img id='label' class='label' src='./images/label.png' alt='watch'></a>
-        </label>
-        <input id='search' class='search' placeholder='Search'>
-        <div id='rightIcons' class='rightIcons'>
-            <button id='topHundredBttn' class='topHundredBttn'></button>
-            <button id='directBttn' class='directBttn'></button>
-            <button id="meBttn" class="meBttn"></button>
-        </div>
-    </header>
+        <header id="header">
+                <div id='leftIcons' class='leftIcons'>
+                    <div></div>
+                </div>
+                <label>
+                    <a href='main.html'><img id='label' class='label' src='./images/label.png' alt='watch'></a>
+                </label>
+                <input id='search' class='search' placeholder='Search'>
+                <div id='rightIcons' class='rightIcons'>
+                    <button id='addPhotoBttn' class='addPhotoBttn'></button>
+                    <button id='topHundredBttn' class='topHundredBttn'></button>
+                    <button id="meBttn" class="meBttn"></button>
+                </div>
+            </header>
 
     <main id="profile" class="profile">
         <div id="userHead" class="userHead">
@@ -50,7 +50,6 @@
             </div>
         </div>
         <div id="userPhotos" class="userPhotos">
-
         </div>
     </main>
 
@@ -62,22 +61,72 @@
         </div>
     </footer>
 
-    <template>
-        <div data-id='' class='post'>
-            <div class='photoBase'><img class='photo' src='./images/loading.svg'></div>
-            <div class='controlPanel'>
-                <div class='postHeader'>
-                    <img class='ava' src='./images/defaultAva.svg'>
-                    <div class='userName'>       </div>
-                </div>
-                <div class='notice'>
-                    
+    <template id='miniPostTemplate'>
+        <img data-id='' class='miniPost'>
+    </template>
+
+    <template id='grayBackTemplate'>
+        <div class='grayBack'>
+        </div>
+    </template>
+
+    <template id='postTemplate'>
+            <div data-id='' class='post'>
+                <div class='photoBase'><img class='photo' src='./images/loading.svg'></div>
+                <div class='controlPanel'>
+                    <div class='postHeader'>
+                        <img class='ava' src='./images/defaultAva.svg'>
+                        <div class='userName'>       </div>
+                    </div>
+                    <div class='comments'>
+                        <div class='notice'>
+                            
+                        </div>
+                    </div>
+                    <div class='info'>
+                        <div class='postButtons'>
+                            <span>
+                                <button data-id='' class='like'></button>
+                            </span>
+                            <span>
+                                <button class='share'></button>
+                            </span>
+                            <div data-id='' class='sharePanel'>
+                                <button class='shareBttn inTelegram'></button>
+                                <button class='shareBttn inSnapchat'></button>
+                                <button class='shareBttn inInstagram'></button>
+                                <button class='shareBttn inTwitter'></button>
+                                <button class='shareBttn inFacebook'></button>
+                                <button class='shareBttn inVk'></button>
+                            </div>
+                        </div>
+                        <div class='numOfLikes'><span class='counter'></span> people ❤ it</div>
+                        <div class='timeOfPost'>    </div>
+                    </div>
+                    <div>
+                        <input data-id='' class='addComment' type="text" placeholder='Add comment...'>
+                    </div>
                 </div>
             </div>
+    </template>
+
+    <template id='privateAccountTemplate'>
+        <div class='privateAccount'>This is a private account, follow it to see photos</div>
+    </template>
+
+    <template id='commentTemplate'>
+        <div class='comment'>
+            <span class='userName'></span>
+            <span class='commentText'></span>
         </div>
     </template>
 
 </body>
+
+<script src='scripts/MainPage/Comment.js'></script>
+<script src='scripts/MainPage/ConvertorService.js'></script>
+<script src="scripts/MainPage/PhotoPost.js"></script>
+<script src="scripts/UserPage/MiniPost.js"></script>
 <script src='scripts/HeaderView.js'></script>
 <script src='scripts/Header.js'></script>
 <script src='scripts/UserPage/ProfileModel.js'></script>

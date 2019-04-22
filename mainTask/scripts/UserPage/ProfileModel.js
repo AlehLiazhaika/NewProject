@@ -1,4 +1,4 @@
-/* global User */
+/* global User, PhotoPost */
 
 function updateUser(user) {
   localStorage.setItem(user.username, JSON.stringify(user));
@@ -8,6 +8,15 @@ class ProfileModel {
   constructor() {
     this._user = User.parse(JSON.parse(localStorage.getItem(localStorage.getItem('targetUser'))));
     this._me = User.parse(JSON.parse(localStorage.getItem(localStorage.getItem('me'))));
+    this._posts = JSON.parse(localStorage.getItem('posts')).map(element => PhotoPost.parse(element));
+  }
+
+  getPost(postID) {
+    return this._posts.find(element => element.id === postID);
+  }
+
+  updateLS() {
+    localStorage.setItem('posts', JSON.stringify(this._posts));
   }
 
   follow() {
@@ -30,6 +39,20 @@ class ProfileModel {
   changeAccess() {
     this._me.togglePrivacy();
     updateUser(this._me);
+  }
+
+  like(postID) {
+    this.getPost(postID).like(this._me.username);
+    this.updateLS();
+  }
+
+  share(postID) {
+    this.empte = null;
+  }
+
+  addComment(postID, text) {
+    this.getPost(postID).comment(new Comment(this._me.username, text));
+    this.updateLS();
   }
 
   getProfileFollowers() {

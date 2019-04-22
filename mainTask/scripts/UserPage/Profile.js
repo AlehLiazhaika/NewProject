@@ -7,7 +7,10 @@ class Profile {
       this.follow.bind(this),
       this.changeAva.bind(this),
       this.changeStatus.bind(this),
-      this.changeAccess.bind(this));
+      this.changeAccess.bind(this),
+      this.like.bind(this),
+      this.share.bind(this),
+      this.addComment.bind(this));
   }
 
   follow() {
@@ -28,5 +31,20 @@ class Profile {
   changeAccess() {
     this._model.changeAccess();
     ProfileView.changeAccess();
+  }
+
+  like(postID) {
+    this._model.like(postID);
+    ProfileView.like(postID);
+  }
+
+  share(postID) {
+    this._model.share(postID);
+    ProfileView.share(postID);
+  }
+
+  addComment(postID, text) {
+    this._model.addComment(postID, text);
+    ProfileView.addComment(postID);
   }
 }

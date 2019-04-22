@@ -1,9 +1,19 @@
-/* global PhotoPost, DefaultFilter */
+/* global User, PhotoPost, DefaultFilter */
 
 class FeedModel {
   constructor() {
-    this._me = localStorage.getItem('me');
-    this._posts = [];
+    this._me = User.parse(JSON.parse(localStorage.getItem(localStorage.getItem('me'))));
+    this._postsID = [];
+    this._me.following.forEach((user) => {
+      User.parse(JSON.parse(localStorage.getItem(user))).miniPosts.forEach((miniPost) => {
+        this._postsID.push(miniPost.id);
+      });
+    });
+    this._posts = JSON.parse(localStorage.getItem('posts')).map(post => PhotoPost.parse(post));
+  }
+
+  get posts() {
+    return this._posts.filter(post => this._postsID.includes(post.id) || post.author === this._me.username);
   }
 
   updateLS() {
@@ -43,15 +53,16 @@ class FeedModel {
   }
 
   like(postID) {
-    this.getPost(postID).like(this._me);
+    this.getPost(postID).like(this._me.username);
     this.updateLS();
   }
 
   share(postID) {
+    this.empty = null;
   }
 
   addComment(postID, text) {
-    this.getPost(postID).comment(new Comment(this._me, text));
+    this.getPost(postID).comment(new Comment(this._me.username, text));
     this.updateLS();
   }
 }
