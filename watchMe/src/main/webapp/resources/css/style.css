@@ -1,0 +1,865 @@
+*{
+    font-family: 'Segoe UI Semilight', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FAFAFA;
+    overflow-x: hidden;
+}
+
+header{
+    top: 0px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background: #FFF;
+    border-bottom: #E6E6E6 inset 1px;
+    overflow: hidden;
+}
+
+textarea {
+    resize: none;
+}
+
+.leftIcons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60px;
+    margin-left: 5px;
+}
+
+.addPhotoBttn{
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/add.svg);
+    background-size: cover;
+}
+
+.rightIcons{
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+    margin-right: 5px;
+}
+
+.rightIcons button{
+    border: none;
+    background-color: white;
+    background-size: cover;
+}
+
+.directBttn{
+    height: 30px;
+    width: 30px;
+    background-image: url(../images/direct.svg);
+}
+
+.meBttn{
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    background-image: url(../images/defaultAva.svg);
+}
+
+.label{
+    height: 50px;
+}
+
+.search{
+    height: 25px;
+    width: 200px;
+    border-radius: 4px;
+    border: #E6E6E6 solid 1px;
+    text-align: center;
+    color: #595959;
+}
+
+main{
+    min-height: calc(100vh - 87px);
+}
+
+.feed{
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.post{
+    cursor: default;
+    display: flex;
+    margin: 15px 0px;
+    border: #E6E6E6 solid 1px;
+}
+
+.photoBase{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.photo{
+    width: 500px;
+}
+
+.controlPanel{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background: #FFFFFF;
+}
+
+.postHeader{
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 0px 0px 5px;
+    height: 35px;
+}
+
+.ava{
+    cursor: pointer;
+    height: 30px;
+    margin-right: 3px; 
+    border-radius: 15px;
+}
+
+.comments{
+    padding: 5px;
+    height: 318px;
+    overflow-y: auto;
+}
+
+.notice{
+    font-weight: normal;
+    margin-bottom: 10px; 
+}
+
+.comment{
+    margin: 4px 0px;
+    font-size: 14px;
+}
+
+.userName{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.info{
+    padding: 5px 2px 2px 2px;
+    height: 73px;
+    border-top: #E6E6E6 solid 1px;
+}
+
+.postButtons{
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    width: 100%;
+}
+
+.postButtons span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+}
+
+.numOfLikes{
+    font-family: 'Segoe UI Light', sans-serif;
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.timeOfPost{
+    font-family: 'Segoe UI Light', sans-serif;
+    padding-left: 8px; 
+    font-size: 13px;
+    color: #aaaaaa; 
+}
+
+.addComment::-webkit-input-placeholder{
+    color: #757575;
+}
+
+.addComment{
+    padding: 8px 8px;
+    height: 34px;
+    width: 284px;
+    border: none;
+    border-top: #E6E6E6 solid 1px;
+    color: black;
+    font-size: 15px;
+}
+
+.loadMoreBttn{
+    display: none;
+    width: 822px;
+    height: 40px;
+    cursor: pointer;
+    background: #ffffff;
+    border: #E6E6E6 solid 1px;
+    color: #757575;
+    font-size: 15px;
+
+    transition-duration: 0.5s;
+}
+
+.loadMoreBttn:hover{
+    background: #E6E6E6;
+}
+
+.loadMoreBttn:active{
+    background: #ffffff;
+}
+
+footer{
+    margin-top: 15px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #FFFFFF;
+    border: #E6E6E6 solid 1px;
+}
+
+.footerLabel{
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footerLabelImg{
+    height: 15px;
+    margin: 0px 0px 1px 3px;
+}
+
+.footerCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutMe{
+    margin-bottom: 3px;
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+.lastExchange{
+    font-size: 10px;
+    color: #aaaaaa;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.like{
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/like.svg);
+    background-size: cover;
+}
+
+@keyframes likeAnim {
+    20% {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+.liked{
+    animation-name: likeAnim;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    background-image: url(../images/liked.svg);
+    transition-delay: 0.06s;
+}
+
+.share{
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/share.svg);
+    background-size: 100% 100%;
+    transition-duration: 0.3s;
+}
+
+.shared{
+    transform: scale(-1, 1);
+    transition-duration: 0.3s;
+    background-image: url(../images/shared.svg);
+}
+
+.counter{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.sharePanel{
+    width: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    transition-duration: 0.3s;
+}
+
+.shareBttn{
+    height: 0px;
+    width: 0px;
+    border: none;
+    background-color: white;
+    background-size: cover;
+    transition-duration: 0.3s;
+}
+
+.inSnapchat{
+    background-image: url(../images/snapchat.svg);
+    transition-duration: 0.2s;
+}
+
+.inSnapchat:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/snapchat_C.svg);
+}
+
+.inInstagram{
+    background-image: url(../images/instagram.svg);
+    transition-duration: 0.2s;
+}
+
+.inInstagram:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/instagram_C.svg);
+}
+
+.inFacebook{
+    background-image: url(../images/facebook.svg);
+    transition-duration: 0.2s;
+}
+
+.inFacebook:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/facebook_C.svg);
+}
+
+.inTwitter{
+    background-image: url(../images/twitter.svg);
+    transition-duration: 0.2s;
+}
+
+.inTwitter:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/twitter_C.svg);
+}
+
+.inVk{
+    background-image: url(../images/vk.svg);
+    transition-duration: 0.2s;
+}
+
+.inVk:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/vk_C.svg);
+}
+
+.inTelegram{
+    background-image: url(../images/telegram.svg);
+    transition-duration: 0.2s;
+}
+
+.inTelegram:hover{
+    transition-duration: 0.2s;
+    background-image: url(../images/telegram_C.svg);
+}
+
+.sharePanelOn {
+    width: 230px;
+    transition-duration: 0.3s;
+}
+
+.sharePanelOn .shareBttn {
+    height: 27px;
+    width: 27px;
+    transition-duration: 0.3s;
+}
+
+.authorizationPanel{
+    margin-top: 20px;
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #FFFFFF;
+    border: #E6E6E6 solid 1px;
+}
+
+.authorizationForm{
+    padding: 20px 0px;
+    height: 560px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.authorizationText{
+    width: 250px;
+    text-align: center;
+    font-size: 20px;
+    color: #757575;
+}
+
+.topicText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+}
+
+.authorizationInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.labels{
+    margin: 5px 0px;
+    cursor: text;
+    padding-left: 8px;
+    height: 34px;
+    width: 254px;
+    border: #E6E6E6 solid 1px;
+    border-radius: 2px;
+    transition-duration: 0.2s;
+}
+
+.authorizationInputs label input::-webkit-input-placeholder{
+    color: #757575;
+}
+
+.authorizationInputs label input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: black;
+    font-size: 15px;
+    transition-duration: 0.2s;
+}
+
+.logInText{
+    margin-top: 15px;
+    font-size: 17px;
+    color: #757575;
+}
+
+.clickHereBttn{
+    border: none;
+    background: none;
+    color: #FF7A42;
+    font-size: 17px;
+}
+
+.signUpBttn{
+    margin: 5px 0px;
+    height: 34px;
+    width: 262px;
+    border-radius: 2px;
+    background: #DC918A;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition-duration: 0.5s;
+}
+
+.logInBttn{
+    margin: 5px 0px;
+    height: 34px;
+    width: 262px;
+    border-radius: 2px;
+    background: #86CCE4;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition-duration: 0.5s;
+}
+
+.logInBttn:active{
+    background: #55ACEE;
+}
+
+.signUpBttn:active{
+    background: #FF7A42;
+    transition-duration: 0.1s;
+}
+
+.blocked{
+    cursor: default;
+    opacity: 0;
+    transition-duration: 0.2s;
+}
+
+.authorizationMessages{
+    height: 20px;
+    color: red;
+}
+
+.signOut{
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.userHead{
+    margin-top: 80px;
+    padding-bottom: 10px;
+    width: 630px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: #E6E6E6 solid 1px;
+}
+
+.avaProfile{
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.profilePanel{
+    margin: 5px 0px 20px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nickname{
+    font-size: 30px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.status{
+    border-radius: 2px;
+    cursor: default;
+    border: #FAFAFA solid 1px;
+    height: 21px;
+    font-size: 20px;
+    font-family: 'Segoe UI Light', sans-serif;
+    font-style: italic;
+    color: #757575;
+    background: #FAFAFA;
+}
+
+.profileInfo{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.followsContainer{
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.followsContainer div{
+    font-size: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #595959;
+}
+
+.settingsBttn{
+    display: none;
+    margin: 5px 0px 0px 5px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/settings.svg);
+    background-size: cover;
+    transition-duration: 0.2s;
+}
+
+.signOutBttn{
+    display: none;
+    margin: 5px 0px 0px 5px;
+    height: 20px;
+    width: 40px;
+    border: none;
+    background-color: white;
+    background-image: url(../images/sign-out.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.personalBttns{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.followBttn{
+    margin-left: 15px;
+    display: none;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Segoe UI Light', sans-serif;
+    color: #FAFAFA;
+    background: #FF7A42;
+    transition-duration: 0.1s;
+}
+
+.unfollowBttn{
+    background: #86CCE4;
+    transition-duration: 0.1s;
+}
+
+.profileSettings{
+    height: 30px;
+    width: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition-duration: 0.2s;
+}
+
+.profileSettingsOn{
+    width: 250px;
+    overflow: hidden;
+    transition-duration: 0.2s;
+}
+
+.profileSettings button{
+    overflow: hidden;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: none;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+.changeAva{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: none;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+.changeAva{
+    vertical-align:middle;
+}
+
+#changeAva{
+    display: none;
+}
+
+.changeAva:hover{
+    color: #FF7A42;
+}
+
+.changeStatus:hover{
+    color: #DC918A;
+}
+
+.changeAccess:hover{
+    color: #86CCE4;
+}
+
+.userPhotos{
+    width: 600px;
+}
+
+.spin{
+    transform: rotate(90deg);
+    transition-duration: 0.2s;
+}
+
+.publicPrivacyImg{
+    content: url(../images/padlock-unlock.svg);
+}
+
+.privatePrivacyImg{
+    content: url(../images/padlock.svg);
+}
+
+.activeStatus{
+    cursor: text;
+    border: #86CCE4 solid 1px;
+}
+
+.postEditor{
+    margin-top: 100px; 
+    display: flex;
+    flex-direction: row;
+    border: #E6E6E6 solid 1px;
+    background: #FFFFFF;
+}
+
+.loadPhotoBase{
+    cursor: pointer;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.loadPhotoControlPanel{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+.loadPhoto{
+    display: none;
+}
+
+.uploadImg{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image: url(../images/uploadOff.svg);
+    background-size: cover;
+}
+
+.discriptionBase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discriptionBase > div {
+    cursor: default;
+    padding: 10px;
+    color: #595959;
+}
+
+.discribtion{
+    border: none;
+    font-family: 'Segoe UI Semilight', sans-serif;
+}
+
+.forDiscription{
+    cursor: text;
+    padding: 15px;
+    border-top: #E6E6E6 solid 1px;
+    border-bottom: #E6E6E6 solid 1px; 
+}
+
+.publishPostBttn{
+    height: 40px;
+    width: 150px;
+    border-radius: 2px;
+    background: #FF7A42;
+    border: none;
+    color: #FFFFFF;
+    font-size: 26px;
+    transition-duration: 0.1s;
+}
+
+.publishPostBttn:active{
+    background: #DC918A;
+    font-size: 24px;
+    transition-duration: 0.1s;
+}
+
+.loadedPhoto{
+    display: none;
+    height: 500px;
+}
+
+.miniPost{
+    cursor: pointer;
+    height: 200px;
+    margin: 5px;
+}
+
+.userPhotos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+}
+
+.grayBack{
+    cursor: pointer;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(70, 70, 70, 0.7);
+}
+
+.privateAccount{
+    margin-top: 15px;
+    font-size: 30px;
+    color: #757575;
+}

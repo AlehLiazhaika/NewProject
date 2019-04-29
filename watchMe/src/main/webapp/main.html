@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>watch Me</title>
+    <meta charset="utf-8">
+    <link href='./resources/css/style.css' type='text/css' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel='shortcut icon' href='./resources/images/shortCut.png' type='image/png'>
+</head>
+
+<body>
+    
+        <header id="header">
+                <div id='leftIcons' class='leftIcons'>
+                    <div></div>
+                </div>
+                <label>
+                    <a href='main.html'><img id='label' class='label' src='./resources/images/label.png' alt='watch'></a>
+                </label>
+                <input id='search' class='search' placeholder='Search'>
+                <div id='rightIcons' class='rightIcons'>
+                    <button id='addPhotoBttn' class='addPhotoBttn'></button>
+                    <button id="meBttn" class="meBttn"></button>
+                </div>
+            </header>
+    <main>
+        <div id='feed' class='feed'>
+            
+        </div>
+        
+        <button id='loadMoreBttn' class='loadMoreBttn'>Load more</button>
+    </main>
+    <footer>
+        <div id='footerLabel' class='footerLabel'><div>© 2019 </div><img id='footerLabelImg' class='footerLabelImg' src='./resources/images/label.png'></div>
+        <div id='footerCont' class='footerCont'>
+            <div id='aboutMe' class='aboutMe'>Aleh Liazhaika | 2 course 6 group | aleh.liazhaika@gmail.com</div>
+            <div id='lastExchange' class='lastExchange'>last exchange 10.04.2019</div>
+        </div>
+    </footer>
+
+
+    <template id='postTemplate'>
+        <div data-id='' class='post'>
+            <div class='photoBase'><img class='photo' src='./resources/images/loading.svg'></div>
+            <div class='controlPanel'>
+                <div class='postHeader'>
+                    <img class='ava' src='./resources/images/defaultAva.svg'>
+                    <div class='userName'>       </div>
+                </div>
+                <div class='comments'>
+                    <div class='notice'>
+                        
+                    </div>
+                </div>
+                <div class='info'>
+                    <div class='postButtons'>
+                        <span>
+                            <button data-id='' class='like'></button>
+                        </span>
+                        <span>
+                            <button class='share'></button>
+                        </span>
+                        <div data-id='' class='sharePanel'>
+                            <button class='shareBttn inTelegram'></button>
+                            <button class='shareBttn inSnapchat'></button>
+                            <button class='shareBttn inInstagram'></button>
+                            <button class='shareBttn inTwitter'></button>
+                            <button class='shareBttn inFacebook'></button>
+                            <button class='shareBttn inVk'></button>
+                        </div>
+                    </div>
+                    <div class='numOfLikes'><span class='counter'></span> people ❤ it</div>
+                    <div class='timeOfPost'>    </div>
+                </div>
+                <div>
+                    <input data-id='' class='addComment' type="text" placeholder='Add comment...'>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id='commentTemplate'>
+        <div class='comment'>
+            <span class='userName'></span>
+            <span class='commentText'></span>
+        </div>
+    </template>
+
+</body>
+<script src='./resources/js/User.js'></script>
+<script src='./resources/js/HeaderView.js'></script>
+<script src='./resources/js/Header.js'></script>
+<script src="./resources/js/MiniPost.js"></script>
+<script src='./resources/js/FeedModel.js'></script>
+<script src='./resources/js/FeedView.js'></script>
+<script src='./resources/js/Feed.js'></script>
+<script src='./resources/js/PhotoPost.js'></script>
+<script src='./resources/js/Comment.js'></script>
+<script src='./resources/js/Filter.js'></script>
+<script src='./resources/js/ConvertorService.js'></script>
+<script src='./resources/js/mainPage.js'></script>
+</html>
+
+<!--1f0060-->
