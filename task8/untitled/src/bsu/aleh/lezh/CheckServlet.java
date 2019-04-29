@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/check")
 public class CheckServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -18,7 +19,7 @@ public class CheckServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try{
+        try {
             JsonObject jo = new JsonObject();
             jo.put("name", "Aleh");
             jo.put("age", 19);

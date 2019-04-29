@@ -12,7 +12,6 @@ public class PageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("halooooo");
         req.getRequestDispatcher("/WEB-INF/Page.html").forward(req, resp);
     }
 }
