@@ -1,0 +1,7 @@
+SELECT DATEDIFF(CURTIME(), str_to_date(CREATION_TIME, '%Y-%m-%d %T'))
+
+FROM watchMe.photo_posts
+
+ORDER BY CREATION_TIME
+
+LIMIT 1

@@ -53,31 +53,61 @@ function tryToSignUp() {
   const username = document.getElementById('userNameInput').value;
   const password = document.getElementById('passwordInput').value;
 
-  if (email !== '' && name !== '' && username !== '' && password !== '') {
-    if (localStorage.getItem(username) === null) {
-      signUp(email, name, username, password);
-    } else {
-      printErrorMessage('Oh, this username is already taken');
-    }
-  } else {
-    printErrorMessage('Pls, fill all fields');
-  }
+  const body = {
+    email,
+    name,
+    username,
+    password,
+  };
+  const init = {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    body: JSON.stringify(body),
+  };
+  fetch('/watchMe/tryLogIn', init)
+    .then(response => response.text())
+    .then((message) => {
+      if (message === 'success') {
+        signUp(email, name, username, password);
+      } else {
+        printErrorMessage(message);
+      }
+    })
+    .catch(err => console.log(err));
 }
 
 function logIn(username) {
-  localStorage.setItem('me', username);
+  const init = {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'plain/text' }),
+    body: username,
+  };
+  fetch('/watchMe/logIn', init);
   goToMainPage();
 }
 
 function tryToLogIn() {
   const username = document.getElementById('userNameInput').value;
   const password = document.getElementById('passwordInput').value;
-  const user = JSON.parse(localStorage.getItem(username));
-  if (user === null || password !== user._password) {
-    printErrorMessage('Incorrect username or password');
-  } else {
-    logIn(username);
-  }
+  const body = {
+    username,
+    password,
+  };
+  const init = {
+    method: 'POST',
+    headers: new Headers({ 'Content-Type': 'application/json' }),
+    body: JSON.stringify(body),
+  };
+  fetch('/watchMe/tryLogIn', init)
+    .then(response => response.text())
+    .then((message) => {
+      if (message === 'success') {
+        logIn(username);
+      } else {
+        printErrorMessage(message);
+      }
+    })
+    .catch(err => console.log(err));
 }
 
 function sendInfo(event) {

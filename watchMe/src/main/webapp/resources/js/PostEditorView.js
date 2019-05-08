@@ -12,6 +12,7 @@ class PostEditorView {
       handleEvent(event) {
         const image = `./resources/images/usersPhotos/${document.getElementById('loadPhoto').files[0].name}`;
         const discription = document.getElementById('discribtion').value;
+        XMLHttpRequest
         publish(image, discription);
       },
     };

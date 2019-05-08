@@ -1,0 +1,8 @@
+SELECT *
+FROM watchMe.users 
+
+NATURAL JOIN watchMe.photo_posts
+
+GROUP BY USER_ID
+
+HAVING COUNT(USER_ID) > 3
