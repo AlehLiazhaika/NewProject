@@ -1,0 +1,3 @@
+SELECT USERNAME
+
+FROM watchMe.users

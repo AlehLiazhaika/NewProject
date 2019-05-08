@@ -1,0 +1,11 @@
+SELECT USERNAME
+
+FROM watchMe.users
+
+NATURAL JOIN watchMe.photo_posts
+
+WHERE DATEDIFF(CURTIME(), str_to_date(CREATION_TIME, '%Y-%m-%d %T')) = 0
+
+GROUP BY USER_ID
+
+HAVING COUNT(USER_ID) > 3
